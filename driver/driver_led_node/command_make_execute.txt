@@ -1,0 +1,41 @@
+
+sudo cat /proc/kmsg &
+
+=================================
+
+make clean
+
+make
+
+
+=================================
+
+
+sudo mknod /dev/gpioled c 201 0
+
+ls /dev/gpio* -al
+
+
+=================================
+
+
+sudo insmod gpioled.ko
+
+lsmod | grep gpioled
+
+sudo ./led_test on
+
+sudo ./led_test off
+
+
+=================================
+
+
+sudo rmmod gpioled
+
+lsmod | grep gpioled
+
+sudo rm /dev/gpioled
+
+ls /dev/gpio*
+

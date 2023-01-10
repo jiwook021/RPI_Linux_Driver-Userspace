@@ -1,0 +1,1 @@
+cmd_/home/jiwook/Downloads/driver_led_node/driver_led_node.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/Downloads/driver_led_node/driver_led_node.ko /home/jiwook/Downloads/driver_led_node/driver_led_node.o /home/jiwook/Downloads/driver_led_node/driver_led_node.mod.o;  true
