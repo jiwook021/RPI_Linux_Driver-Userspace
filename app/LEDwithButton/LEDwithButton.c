@@ -84,3 +84,4 @@ void INThandler(int sig)
     printf("\nclosed fd and memory unmammped. \nend the process by exit(0)\n");
     exit(0);
 }
+
