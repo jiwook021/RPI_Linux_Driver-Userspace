@@ -138,21 +138,54 @@ main on,off 5 times code 1seconds
 */
 
 
+// int main()
+// {
+//     static const int PIN = 18;
+
+//     int ret =0;
+//     ret = GPIOExport(PIN);
+//     ret = GPIODirection(PIN, 1);
+
+//     for(int i =0; i<5; i++)
+//     {
+//         GPIOWrite(PIN, 0);
+//         sleep(1);
+//         GPIOWrite(PIN, 1);
+//         sleep(1);
+//     }
+
+//     return 0;
+// }
+
+
 int main()
 {
     static const int PIN = 18;
 
-    int ret =0;
-    ret = GPIOExport(PIN);
-    ret = GPIODirection(PIN, 1);
 
+    int fd;
+    char value;
+    
+    // export GPIO
+    fd = open ("/sys/class/gpio/export", O_WRONLY);s
+    write (fd, "18", 4);
+    close (fd);
+
+    // configure as input
+    fd = open ("/sys/class/gpio/gpio18/direction", O_WRONLY);
+    write (fd, "out", 3);
+    close (fd);
+
+
+    fd = open("/sys/class/gpio/gpio18/value", O_WRONLY);
     for(int i =0; i<5; i++)
     {
-        GPIOWrite(PIN, 0);
+        write (fd, "1", 2);
         sleep(1);
-        GPIOWrite(PIN, 1);
+        write (fd, "0", 2);
         sleep(1);
-    }
+    }   
 
+    close (fd);
     return 0;
 }
