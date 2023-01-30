@@ -167,7 +167,7 @@ int main()
     char value;
     
     // export GPIO
-    fd = open ("/sys/class/gpio/export", O_WRONLY);s
+    fd = open ("/sys/class/gpio/export", O_WRONLY);
     write (fd, "18", 4);
     close (fd);
 
