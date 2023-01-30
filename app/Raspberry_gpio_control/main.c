@@ -136,3 +136,23 @@ out > direction
 main on,off 5 times code 1seconds
 
 */
+
+
+int main()
+{
+    static const int PIN = 18;
+
+    int ret =0;
+    ret = GPIOExport(PIN);
+    ret = GPIODirection(PIN, 1);
+
+    for(int i =0; i<5; i++)
+    {
+        GPIOWrite(PIN, 0);
+        sleep(1);
+        GPIOWrite(PIN, 1);
+        sleep(1);
+    }
+
+    return 0;
+}
