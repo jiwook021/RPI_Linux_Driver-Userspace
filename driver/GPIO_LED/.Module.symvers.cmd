@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/GPIO_LED/Module.symvers := sed 's/\.ko$$/\.o/' /home/jiwook/data/driver/GPIO_LED/modules.order | scripts/mod/modpost -m -a  -o /home/jiwook/data/driver/GPIO_LED/Module.symvers -e -i Module.symvers   -T -
