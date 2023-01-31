@@ -12,7 +12,7 @@
 #define GPIO_LED 18 // BCM_GPIO #18
 
 // sudo mknod /dev/int_led c 203 0
-
+//insmod dmesg rmmod lsmod
 
 static int btn_irq;
 static char msg[40] = {0};
@@ -94,7 +94,8 @@ void gpiobtn_exit(void){
     unregister_chrdev(MOD_MAJOR, MOD_NAME );
     free_irq(btn_irq, NULL);
     gpio_free(GPIO_BTN);
-    
+    gpio_free(GPIO_LED);
+
     printk("%s DRIVER CLEANUP\n", MOD_NAME);
     
     return;
