@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/GPIO_IOCTL/gpio_ioctl.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/GPIO_IOCTL/gpio_ioctl.ko /home/jiwook/data/driver/GPIO_IOCTL/gpio_ioctl.o /home/jiwook/data/driver/GPIO_IOCTL/gpio_ioctl.mod.o;  true
