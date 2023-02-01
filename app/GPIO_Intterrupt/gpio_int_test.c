@@ -2,7 +2,8 @@
 
 
 
-// sudo mknod /dev/gpiobtn c 202 0
+//sudo mknod /dev/gpiobtn c 202 0
+//sudo chmod 777 /dev/gpiobtn
 
 #include <stdio.h>
 #include <stdlib.h>
