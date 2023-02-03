@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Device_file_create/device_file_create.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/Device_file_create/device_file_create.ko /home/jiwook/data/driver/Device_file_create/device_file_create.o /home/jiwook/data/driver/Device_file_create/device_file_create.mod.o;  true

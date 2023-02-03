@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Device_file_create/device_file_create.mod := { echo  /home/jiwook/data/driver/Device_file_create/device_file_create.o;  echo; } > /home/jiwook/data/driver/Device_file_create/device_file_create.mod
