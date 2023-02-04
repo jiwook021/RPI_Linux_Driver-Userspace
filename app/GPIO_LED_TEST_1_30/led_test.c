@@ -1,6 +1,6 @@
 
 // sudo mknod /dev/gpioled c 201 0
-//sudo chmod 777 /dev/gpiobtn
+//sudo chmod u +x /dev/gpiobtn
 
 #include <stdio.h>
 #include <stdlib.h>
