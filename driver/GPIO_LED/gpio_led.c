@@ -23,7 +23,8 @@ int gpioled_release(struct inode *minode, struct file *mfile) {
     return 0;
 }
 
-ssize_t gpioled_write(struct file *inode, const char *gdata, size_t length, loff_t *off_what) {
+ssize_t gpioled_write(struct file *inode, const char *gdata, size_t length, loff_t *off_what)
+{
     unsigned char c;
     
     get_user(c, gdata);
