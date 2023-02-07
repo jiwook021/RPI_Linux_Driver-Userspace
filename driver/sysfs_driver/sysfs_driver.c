@@ -173,7 +173,7 @@ static int __init haha_driver_init(void)
     }
         pr_info("Device Driver Insert...Done!!!\n");
 
-         gpio_request(GPIO_LED, "LED");
+        gpio_request(GPIO_LED, "LED");
         gpio_direction_output(GPIO_LED, 0);
 
         gpio_request(GPIO_BTN, "SWITCH");

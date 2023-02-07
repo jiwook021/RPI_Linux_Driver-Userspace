@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/polymorphistic_sys_fs/polymorphistic_sys_fs.mod := { echo  /home/jiwook/data/driver/polymorphistic_sys_fs/polymorphistic_sys_fs.o;  echo; } > /home/jiwook/data/driver/polymorphistic_sys_fs/polymorphistic_sys_fs.mod

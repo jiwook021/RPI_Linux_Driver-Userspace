@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/polymorphistic_sys_fs/Module.symvers := sed 's/\.ko$$/\.o/' /home/jiwook/data/driver/polymorphistic_sys_fs/modules.order | scripts/mod/modpost -m -a  -o /home/jiwook/data/driver/polymorphistic_sys_fs/Module.symvers -e -i Module.symvers   -T -
