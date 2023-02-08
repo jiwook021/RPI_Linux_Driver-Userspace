@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/real_device_driver/real_device_driver.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/real_device_driver/real_device_driver.ko /home/jiwook/data/driver/real_device_driver/real_device_driver.o /home/jiwook/data/driver/real_device_driver/real_device_driver.mod.o;  true
