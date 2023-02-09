@@ -1,4 +1,4 @@
-
+//sudo mknod /dev/gpioled c 201 0
 
 
 #include <asm/uaccess.h> // copy_to_user(), copy_from_user()

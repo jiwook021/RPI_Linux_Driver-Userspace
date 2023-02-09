@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/driver_led_pwm_2/driver_led_pwm_2.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/driver_led_pwm_2/driver_led_pwm_2.ko /home/jiwook/data/driver/driver_led_pwm_2/driver_led_pwm_2.o /home/jiwook/data/driver/driver_led_pwm_2/driver_led_pwm_2.mod.o;  true

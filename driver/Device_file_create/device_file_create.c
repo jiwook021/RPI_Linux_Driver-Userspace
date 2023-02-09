@@ -75,7 +75,7 @@ static struct file_operations haha_fops = {
 static int __init haha_init(void)
 {
         /*Allocating Major number*/
-        if((alloc_chrdev_region(&dev, 2, 2, "dev_file_create")) <0)
+        if((alloc_chrdev_region(&dev, 0, 1, "haha_Dev")) <0)
         {
                 pr_err("Cannot allocate major number for device\n");
                 return -1;
@@ -98,7 +98,7 @@ static int __init haha_init(void)
         }
  
         /*Creating device*/
-        if(IS_ERR(device_create(dev_class,NULL,dev,NULL,"device_file_create"))){
+        if(IS_ERR(device_create(dev_class,NULL,dev,NULL,"device_create"))){
             pr_err("Cannot create the Device\n");
             goto r_device;
         }
