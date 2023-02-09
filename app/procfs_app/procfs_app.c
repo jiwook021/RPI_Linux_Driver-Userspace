@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
 
     int fd;
     char value = 1;
-    fd = open("/proc/haha/haha_proc", O_RDWR);
+    fd = open("/proc/haha/procfs_proc", O_RDWR);
     int i = 0;
     char buffer[2];
 

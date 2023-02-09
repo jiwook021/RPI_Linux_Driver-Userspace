@@ -229,7 +229,7 @@ static long haha_ioctl(struct file* file, unsigned int cmd, unsigned long arg)
 static int __init haha_driver_init(void)
 {
     /*Allocating Major number*/
-    if ((alloc_chrdev_region(&dev, 0, 1, "haha_Dev")) < 0) {
+    if ((alloc_chrdev_region(&dev, 0, 1, "procfs_Dev")) < 0) {
         pr_info("Cannot allocate major number\n");
         return -1;
     }
@@ -245,13 +245,13 @@ static int __init haha_driver_init(void)
     }
 
     /*Creating struct class*/
-    if (IS_ERR(dev_class = class_create(THIS_MODULE, "haha_class"))) {
+    if (IS_ERR(dev_class = class_create(THIS_MODULE, "procfs_class"))) {
         pr_info("Cannot create the struct class\n");
         goto r_class;
     }
 
     /*Creating device*/
-    if (IS_ERR(device_create(dev_class, NULL, dev, NULL, "haha_device"))) {
+    if (IS_ERR(device_create(dev_class, NULL, dev, NULL, "procfs_device"))) {
         pr_info("Cannot create the Device 1\n");
         goto r_device;
     }
@@ -266,7 +266,7 @@ static int __init haha_driver_init(void)
     }
 
     /*Creating Proc entry under "/proc/haha/" */
-    proc_create("haha_proc", 0666, parent, &proc_fops);
+    proc_create("procfs_proc", 0666, parent, &proc_fops);
 
     pr_info("Device Driver Insert...Done!!!\n");
 

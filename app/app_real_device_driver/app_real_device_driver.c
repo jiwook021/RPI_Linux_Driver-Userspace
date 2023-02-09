@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+
 int8_t write_buf[1024];
 int8_t read_buf[1024];
 
@@ -14,11 +15,17 @@ int8_t read_buf[1024];
 
 
 
+int8_t write_buf[1024];
+int8_t read_buf[1024];
+
 int main()
 {
     int fd;
     char option;
-    fd = open("/dev/haha_device", O_RDWR);
+
+  
+    fd = open("/dev/REAL_device", O_RDWR);
+
     if (fd < 0) {
         printf("Cannot open device file...\n");
         return 0;

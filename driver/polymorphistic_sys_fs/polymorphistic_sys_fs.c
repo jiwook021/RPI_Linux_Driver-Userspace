@@ -215,7 +215,7 @@ static int __init haha_driver_init(void)
     // kernel_kobj : /sys/kernel/haha_sysfs
     // fs_kobj : /sys/fs/haha_sysfs
     // firmware_kobj : /sys/firmware/haha_sysfs
-    kobj_ref = kobject_create_and_add("haha_sysfs", kernel_kobj);
+    kobj_ref = kobject_create_and_add("poly_sysfs", kernel_kobj);
 
     /*Creating sysfs file for haha_value*/
     if (sysfs_create_file(kobj_ref, &haha_attr.attr)) {
