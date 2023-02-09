@@ -11,7 +11,7 @@
 #define GPIO_BTN 17 // BCM_GPIO #17
 #define GPIO_LED 18 // BCM_GPIO #18
 
-// sudo mknod /dev/int_led c 203 0
+//sudo mknod /dev/int_led c 203 0
 //insmod dmesg rmmod lsmod
 
 static int btn_irq;
@@ -26,12 +26,12 @@ static irqreturn_t btn_interrupt(int irq, void *dev_id) {
     strcpy(msg, temp);
     if (count%2 ==0)
     {
-        gpio_set_value(GPIO_LED, (1));
+        gpio_set_value(GPIO_LED, 1);
          printk("led on\n");
     }
     else 
     {
-        gpio_set_value(GPIO_LED, (0));
+        gpio_set_value(GPIO_LED, 0);
         printk("led off\n");
     }
     return 0;
@@ -48,7 +48,6 @@ static ssize_t gpiobtn_read(struct file *filp, char *buf, size_t count, loff_t *
 
 static int gpiobtn_open(struct inode *inode, struct file *filp) {
     printk("Kernel Module Open(): %s\n", MOD_NAME);
-    
     return 0;
 }
 
