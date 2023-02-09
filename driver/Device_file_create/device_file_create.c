@@ -14,7 +14,7 @@ static struct class *dev_class;
 static struct cdev haha_cdev;
 char *msg="haha..";
 
-#define GPIO_LED 18
+#define  GPIO_LED 18
 #define  LED_DEV_MAGIC   'Y'
  
 #define  LED_INIT    _IO(LED_DEV_MAGIC,   0)
@@ -22,17 +22,20 @@ char *msg="haha..";
 #define  LED_OFF     _IOW(LED_DEV_MAGIC, 2, unsigned char) 
 
 
-int gpioled_open(struct inode *minode, struct file *mfile) {
+int gpioled_open(struct inode *minode, struct file *mfile) 
+{
     printk("Kernel Module Open(): %s\n");
     return 0;
 }
 
-int gpioled_release(struct inode *minode, struct file *mfile) {
+int gpioled_release(struct inode *minode, struct file *mfile) 
+{
     printk("Kernel Module close(): %s\n");
     return 0;
 }
 
-ssize_t gpioled_write(struct file *inode, const char *gdata, size_t length, loff_t *off_what) {
+ssize_t gpioled_write(struct file *inode, const char *gdata, size_t length, loff_t *off_what) 
+{
     unsigned char c;
     
     get_user(c, gdata);
@@ -43,7 +46,6 @@ ssize_t gpioled_write(struct file *inode, const char *gdata, size_t length, loff
 
 long int lcd_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 {
- 
     switch(cmd) 
     {
     case LED_INIT :
@@ -51,20 +53,17 @@ long int lcd_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
         break;
     case LED_ON :
         printk("LED ON = %02x..\n",(unsigned char )arg);
-        gpio_set_value(GPIO_LED, (1));
+        gpio_set_value(GPIO_LED, 1);
         break;
     case LED_OFF :
         printk("LED OFF = %02x..\n",(unsigned char )arg);
-        gpio_set_value(GPIO_LED, (0));
+        gpio_set_value(GPIO_LED, 0);
         break;
     default :
         printk("ioctl command mismatch ERROR! \n");
     }
     return 0;
 }
-
-
-
 
 static struct file_operations haha_fops = {
     .write = gpioled_write,
@@ -73,12 +72,11 @@ static struct file_operations haha_fops = {
     .unlocked_ioctl = lcd_ioctl,
 };
 
-
-
 static int __init haha_init(void)
 {
         /*Allocating Major number*/
-        if((alloc_chrdev_region(&dev, 0, 1, "haha_Dev")) <0){
+        if((alloc_chrdev_region(&dev, 0, 1, "haha_Dev")) <0)
+        {
                 pr_err("Cannot allocate major number for device\n");
                 return -1;
         }
@@ -132,7 +130,6 @@ module_exit(haha_exit);
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Simple linux driver (Automatically Creating a Device file)");
 MODULE_VERSION("1.2");
-
 
 // static struct cdev haha_cdev;
 

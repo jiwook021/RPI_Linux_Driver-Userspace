@@ -84,7 +84,11 @@ static ssize_t haha_write(struct file* filp, const char __user* buf, size_t len,
 static int __init haha_driver_init(void)
 {
     /*Allocating Major number*/
+<<<<<<< HEAD
     if ((alloc_chrdev_region(&dev, 0, 1, "haha_Dev")) < 0) {
+=======
+    if ((alloc_chrdev_region(&dev, 0, 1, "REAL_Dev")) < 0) {
+>>>>>>> b6d42df235a2a17a014d5119a2886bb6533dbf28
         pr_info("Cannot allocate major number\n");
         return -1;
     }
@@ -100,13 +104,21 @@ static int __init haha_driver_init(void)
     }
 
     /*Creating struct class*/
+<<<<<<< HEAD
     if (IS_ERR(dev_class = class_create(THIS_MODULE, "haha_class"))) {
+=======
+    if (IS_ERR(dev_class = class_create(THIS_MODULE, "REAL_class"))) {
+>>>>>>> b6d42df235a2a17a014d5119a2886bb6533dbf28
         pr_info("Cannot create the struct class\n");
         goto r_class;
     }
 
     /*Creating device*/
+<<<<<<< HEAD
     if (IS_ERR(device_create(dev_class, NULL, dev, NULL, "haha_device"))) {
+=======
+    if (IS_ERR(device_create(dev_class, NULL, dev, NULL, "REAL_device"))) {
+>>>>>>> b6d42df235a2a17a014d5119a2886bb6533dbf28
         pr_info("Cannot create the Device 1\n");
         goto r_device;
     }
