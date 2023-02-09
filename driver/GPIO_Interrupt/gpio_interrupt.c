@@ -53,6 +53,7 @@ static struct file_operations gpiobtn_fops = {
 int gpiobtn_init(void) {
     int result, irq;
     
+
     result = register_chrdev(MOD_MAJOR, "GPIO INTERRUPT", &gpiobtn_fops);
     if(result < 0) {
         printk(KERN_WARNING"Can't get major %d\n", MOD_MAJOR);
