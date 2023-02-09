@@ -5,7 +5,7 @@
 
 #include <linux/gpio.h> // *)!!
 #include <asm/uaccess.h>
-#define MOD_MAJOR 202
+#define MOD_MAJOR 203
 #define MOD_NAME "gpiobtn"
 #define GPIO_BTN 17 // BCM_GPIO #17
 

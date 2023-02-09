@@ -16,6 +16,9 @@ int main(void) {
 int fd;
 
 char buf[40];
+system("sudo mknod /dev/gpiobtn c 203 0");
+system("sudo chmod 777 /dev/gpiobtn");
+
 fd = open("/dev/gpiobtn", O_RDWR);
     
 if(fd < 0) {
