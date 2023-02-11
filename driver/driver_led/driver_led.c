@@ -58,7 +58,6 @@ static void blink1(void) {
 
 static int led_init(void) {
 
-        
         printk("insmod : driver_led Module\n");
         gpio_addr = ioremap(GPIO_BASE, BLOCK_SIZE);
 

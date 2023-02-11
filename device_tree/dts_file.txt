@@ -1,0 +1,67 @@
+dtc -I fs -O dts -o output_before.dts /proc/device-tree
+
+vi output_before.dts
+-> :haha_device (??) -> ??.
+
+//---------------------------------------------------------------------
+
+dtc -@ -I dts -O dtb -o test_overlay.dtbo test_overlay.dts
+
+
+sudo dtoverlay test_overlay.dtbo
+
+
+
+//---------------------------------------------------------------------
+
+
+dtc -I fs -O dts -o output_after.dts /proc/device-tree
+
+
+vi output_after.dts
+-> :haha_device (??) -> ??.
+
+
+//---------------------------------------------------------------------
+
+
+
+ls /proc/device-tree
+ls /proc/device-tree/haha_device
+
+cat /proc/device-tree/haha_device/label
+cat /proc/device-tree/haha_device/name
+
+
+//---------------------------------------------------------------------
+// remove
+
+sudo dtoverlay -r test_overlay
+
+
+
+//---------------------------------------------------------------------
+//---------------------------------------------------------------------
+
+
+dtc -@ -I dts -O dtb -o gpio_led.dtbo gpio_led_overlay.dts
+
+
+sudo dtoverlay gpio_led.dtbo
+
+
+//---------------------------------------------------------------------
+
+
+dtc -I fs -O dts -o output_after_LED.dts /proc/device-tree
+
+
+vi output_after.dts
+-> :led_pins
+-> :leds
+
+//---------------------------------------------------------------------
+// remove
+
+
+sudo dtoverlay -r gpio_led
