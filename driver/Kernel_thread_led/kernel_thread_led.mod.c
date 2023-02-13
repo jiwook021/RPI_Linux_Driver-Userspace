@@ -28,14 +28,24 @@ MODULE_INFO(retpoline, "Y");
 static const struct modversion_info ____versions[]
 __used __section("__versions") = {
 	{ 0xabab44ce, "module_layout" },
-	{ 0xfe990052, "gpio_free" },
-	{ 0x6bc3fbc0, "__unregister_chrdev" },
+	{ 0x4a1b0727, "device_destroy" },
+	{ 0xeda1709d, "kthread_stop" },
+	{ 0x45b0d854, "cdev_del" },
+	{ 0x6091b333, "unregister_chrdev_region" },
+	{ 0xfe146ed6, "class_destroy" },
+	{ 0x257e0a62, "wake_up_process" },
+	{ 0x60811a94, "kthread_create_on_node" },
+	{ 0x29ea4f1c, "device_create" },
+	{ 0x33c2febe, "__class_create" },
 	{ 0x73d7dd02, "gpiod_direction_output_raw" },
 	{ 0x47229b5c, "gpio_request" },
-	{ 0x4a077dff, "__register_chrdev" },
+	{ 0x1727426a, "cdev_add" },
+	{ 0x8ab0a071, "cdev_init" },
+	{ 0xe3ec2f2b, "alloc_chrdev_region" },
+	{ 0xb3f7646e, "kthread_should_stop" },
+	{ 0xf9a482f9, "msleep" },
 	{ 0xbd5adb92, "gpiod_set_raw_value" },
 	{ 0xa3202c1, "gpio_to_desc" },
-	{ 0x28118cb6, "__get_user_1" },
 	{ 0x92997ed8, "_printk" },
 	{ 0xb1ad28e0, "__gnu_mcount_nc" },
 };
@@ -43,4 +53,4 @@ __used __section("__versions") = {
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "4D7CCA2B08B8FFBEBC0AFE5");
+MODULE_INFO(srcversion, "10D8521D8FAA07B46193384");

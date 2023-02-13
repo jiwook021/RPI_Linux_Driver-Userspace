@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Kernel_thread_led/kernel_thread_led.mod := { echo  /home/jiwook/data/driver/Kernel_thread_led/kernel_thread_led.o;  echo; } > /home/jiwook/data/driver/Kernel_thread_led/kernel_thread_led.mod

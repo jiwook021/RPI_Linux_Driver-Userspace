@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Kernel_thread_led/kernel_thread_led.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/Kernel_thread_led/kernel_thread_led.ko /home/jiwook/data/driver/Kernel_thread_led/kernel_thread_led.o /home/jiwook/data/driver/Kernel_thread_led/kernel_thread_led.mod.o;  true

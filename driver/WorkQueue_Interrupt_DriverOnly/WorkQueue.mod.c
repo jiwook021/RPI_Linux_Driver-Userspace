@@ -28,14 +28,33 @@ MODULE_INFO(retpoline, "Y");
 static const struct modversion_info ____versions[]
 __used __section("__versions") = {
 	{ 0xabab44ce, "module_layout" },
-	{ 0xfe990052, "gpio_free" },
-	{ 0x6bc3fbc0, "__unregister_chrdev" },
+	{ 0x4a1b0727, "device_destroy" },
+	{ 0xc1514a3b, "free_irq" },
+	{ 0x45b0d854, "cdev_del" },
+	{ 0x6091b333, "unregister_chrdev_region" },
+	{ 0xfe146ed6, "class_destroy" },
+	{ 0x92d5838e, "request_threaded_irq" },
+	{ 0x90e7185b, "gpiod_to_irq" },
 	{ 0x73d7dd02, "gpiod_direction_output_raw" },
+	{ 0xb5df8513, "gpiod_direction_input" },
 	{ 0x47229b5c, "gpio_request" },
-	{ 0x4a077dff, "__register_chrdev" },
+	{ 0xf76cd0a5, "sysfs_remove_file_ns" },
+	{ 0xa54133aa, "kobject_put" },
+	{ 0x1ecdc082, "sysfs_create_file_ns" },
+	{ 0x1ddc1254, "kobject_create_and_add" },
+	{ 0x88d821ec, "kernel_kobj" },
+	{ 0x29ea4f1c, "device_create" },
+	{ 0x33c2febe, "__class_create" },
+	{ 0x1727426a, "cdev_add" },
+	{ 0x8ab0a071, "cdev_init" },
+	{ 0xe3ec2f2b, "alloc_chrdev_region" },
+	{ 0xf9a482f9, "msleep" },
 	{ 0xbd5adb92, "gpiod_set_raw_value" },
 	{ 0xa3202c1, "gpio_to_desc" },
-	{ 0x28118cb6, "__get_user_1" },
+	{ 0xb2d48a2e, "queue_work_on" },
+	{ 0x2d3385d3, "system_wq" },
+	{ 0x3c3ff9fd, "sprintf" },
+	{ 0xbcab6ee6, "sscanf" },
 	{ 0x92997ed8, "_printk" },
 	{ 0xb1ad28e0, "__gnu_mcount_nc" },
 };
@@ -43,4 +62,4 @@ __used __section("__versions") = {
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "4D7CCA2B08B8FFBEBC0AFE5");
+MODULE_INFO(srcversion, "ABFF7F5CC91AB266266091B");

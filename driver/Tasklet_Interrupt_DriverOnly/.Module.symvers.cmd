@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Tasklet_Interrupt_DriverOnly/Module.symvers := sed 's/\.ko$$/\.o/' /home/jiwook/data/driver/Tasklet_Interrupt_DriverOnly/modules.order | scripts/mod/modpost -m -a  -o /home/jiwook/data/driver/Tasklet_Interrupt_DriverOnly/Module.symvers -e -i Module.symvers   -T -
