@@ -140,6 +140,5 @@ module_init(etx_driver_init);
 module_exit(etx_driver_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("EmbeTronicX <embetronicx@gmail.com>");
 MODULE_DESCRIPTION("EXPORT_SYMBOL Driver - 2");
 MODULE_VERSION("1.26");

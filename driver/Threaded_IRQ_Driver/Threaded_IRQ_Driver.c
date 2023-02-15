@@ -1,11 +1,11 @@
 /***************************************************************************//**
 *  \file       driver.c
 *
-*  \details    Simple GPIO driver explanation (GPIO Interrupt)
+*  \details    Simple GPIO driver explanation (Threaded IRQ)
 *
 *  \author     EmbeTronicX
 *
-*  \Tested with Linux raspberrypi 5.4.51-v7l+
+*  \Tested with Linux raspberrypi 5.10.27-v7l-embetronicx-custom+
 *
 *******************************************************************************/
 #include <linux/kernel.h>
@@ -42,6 +42,7 @@ unsigned long old_jiffie = 0;
 //LED is connected to this GPIO
 #define GPIO_21_OUT (18)
 
+//LED is connected to this GPIO
 #define GPIO_25_IN  (17)
 
 //GPIO_25_IN value toggle
@@ -53,7 +54,6 @@ unsigned int GPIO_irqNumber;
 //Interrupt handler for GPIO 25. This will be called whenever there is a raising edge detected. 
 static irqreturn_t gpio_irq_handler(int irq, void* dev_id)
 {
-    static unsigned long flags = 0;
 
 #ifdef EN_DEBOUNCE
     unsigned long diff = jiffies - old_jiffie;
@@ -65,13 +65,27 @@ static irqreturn_t gpio_irq_handler(int irq, void* dev_id)
     old_jiffie = jiffies;
 #endif  
 
-    local_irq_save(flags);
+    pr_info("Interrupt(IRQ Handler)\n");
+
+    /*
+    ** If you don't want to call the thread fun, then you can just return
+    ** IRQ_HANDLED. If you return IRQ_WAKE_THREAD, then thread fun will be called.
+    */
+    return IRQ_WAKE_THREAD;
+}
+
+/*
+** This function is the threaded irq handler
+*/
+static irqreturn_t gpio_interrupt_thread_fn(int irq, void* dev_id)
+{
     led_toggle = (0x01 ^ led_toggle);                             // toggle the old value
     gpio_set_value(GPIO_21_OUT, led_toggle);                      // toggle the GPIO_21_OUT
-    pr_info("Interrupt Occurred : GPIO_21_OUT : %d ", gpio_get_value(GPIO_21_OUT));
-    local_irq_restore(flags);
+    pr_info("Interrupt(Threaded Handler) : GPIO_21_OUT : %d ", gpio_get_value(GPIO_21_OUT));
+
     return IRQ_HANDLED;
 }
+
 
 dev_t dev = 0;
 static struct class* dev_class;
@@ -250,16 +264,16 @@ static int __init etx_driver_init(void)
     GPIO_irqNumber = gpio_to_irq(GPIO_25_IN);
     pr_info("GPIO_irqNumber = %d\n", GPIO_irqNumber);
 
-    if (request_irq(GPIO_irqNumber,             //IRQ number
-        (void*)gpio_irq_handler,   //IRQ handler
+    if (request_threaded_irq(GPIO_irqNumber,             //IRQ number
+        (void*)gpio_irq_handler,   //IRQ handler (Top half)
+        gpio_interrupt_thread_fn,   //IRQ Thread handler (Bottom half)
         IRQF_TRIGGER_RISING,        //Handler will be called in raising edge
         "etx_device",               //used to identify the device name using this IRQ
-        NULL)) {                    //device id for shared IRQ
+        NULL))                      //device id for shared IRQ
+    {
         pr_err("my_device: cannot register IRQ ");
         goto r_gpio_in;
     }
-
-
 
     pr_info("Device Driver Insert...Done!!!\n");
     return 0;
@@ -299,5 +313,5 @@ module_init(etx_driver_init);
 module_exit(etx_driver_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_DESCRIPTION("A simple device driver - GPIO Driver (GPIO Interrupt) ");
-MODULE_VERSION("1.33");
+MODULE_DESCRIPTION("A simple device driver - Threaded IRQ (GPIO Interrupt) ");
+MODULE_VERSION("1.43");
