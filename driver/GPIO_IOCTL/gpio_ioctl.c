@@ -8,8 +8,8 @@
 #include <linux/ioctl.h>
 
 //#define MOD_MAJOR 0 // automatic allocation
-#define MOD_MAJOR 201
-#define MOD_NAME "gpioled"
+#define MOD_MAJOR 207
+#define MOD_NAME "gpioled_ioctl"
 #define GPIO_LED 18 // BCM_GPIO #18
 
 

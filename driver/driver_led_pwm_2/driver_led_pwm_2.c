@@ -35,7 +35,7 @@ MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 volatile unsigned int *gpio_addr;
 volatile unsigned int *gpioset;
 volatile unsigned int *gpioclr;
-       
+
 
 
 

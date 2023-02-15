@@ -1,4 +1,3 @@
-// sudo mknod /dev/gpioled c 201 0
 
 #include <asm/uaccess.h> // copy_to_user(), copy_from_user()
 #include <linux/ioport.h>
@@ -9,7 +8,7 @@
 #include <linux/gpio.h> // *)!!!!
 
 //#define MOD_MAJOR 0 // automatic allocation
-#define MOD_MAJOR 201
+#define MOD_MAJOR 203
 #define MOD_NAME "gpioled"
 #define GPIO_LED 18 // BCM_GPIO #18
 

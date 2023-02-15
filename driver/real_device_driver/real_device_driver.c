@@ -146,5 +146,6 @@ module_init(haha_driver_init);
 module_exit(haha_driver_exit);
 
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 MODULE_DESCRIPTION("Simple Linux device driver (Real Linux Device Driver)");
 MODULE_VERSION("1.4");

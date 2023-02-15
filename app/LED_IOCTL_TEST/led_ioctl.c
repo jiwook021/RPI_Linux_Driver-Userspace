@@ -19,6 +19,9 @@
 
 int main(int argc, char **argv) {
 
+    system("sudo mknod /dev/gpioled_ioctl c 207 0");
+    system("sudo chmod 666 /dev/gpioled_ioctl");
+
 int fd;
 char buf;
 
@@ -27,7 +30,7 @@ if(argc <= 1) {
         return -1;
 }
 
-fd = open("/dev/gpioled", O_WRONLY);
+fd = open("/dev/gpioled_ioctl", O_WRONLY);
 if(fd == -1) {
         printf("Device Open ERROR!\n");
         exit(-1);

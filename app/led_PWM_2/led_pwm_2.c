@@ -20,7 +20,7 @@ char buf;
 //        return -1;
 //}
 system("sudo mknod /dev/gpioled2 c 202 0");
-system("sudo chmod 777 /dev/gpioled2");
+system("sudo chmod 666 /dev/gpioled2");
 
 fd = open("/dev/gpioled2", O_WRONLY);
 if(fd == -1) {
