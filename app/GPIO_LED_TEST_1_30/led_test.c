@@ -15,8 +15,8 @@ int main(int argc, char **argv) {
 int fd;
 char buf;
 
-system("sudo mknod /dev/gpioled c 203 0");
-system("sudo chmod 666 /dev/gpioled");
+system("sudo mknod -m 666 /dev/gpioled c 203 0");
+//system("sudo chmod 666 /dev/gpioled");
 
 if(argc <= 1) {
         printf("Usage : ./gpioled_test on or off\n");

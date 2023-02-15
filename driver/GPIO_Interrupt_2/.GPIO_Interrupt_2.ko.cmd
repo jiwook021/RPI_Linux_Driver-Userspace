@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/GPIO_Interrupt_2/GPIO_Interrupt_2.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/GPIO_Interrupt_2/GPIO_Interrupt_2.ko /home/jiwook/data/driver/GPIO_Interrupt_2/GPIO_Interrupt_2.o /home/jiwook/data/driver/GPIO_Interrupt_2/GPIO_Interrupt_2.mod.o;  true

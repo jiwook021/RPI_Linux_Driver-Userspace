@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Export_symbol_proc_kallsyms/symbol2_driver.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/Export_symbol_proc_kallsyms/symbol2_driver.ko /home/jiwook/data/driver/Export_symbol_proc_kallsyms/symbol2_driver.o /home/jiwook/data/driver/Export_symbol_proc_kallsyms/symbol2_driver.mod.o;  true

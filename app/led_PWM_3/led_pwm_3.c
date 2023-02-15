@@ -18,8 +18,8 @@ char buf;
 //        printf("Usage : ./gpioled_test on or off\n");
 //        return -1;
 //}
-system("sudo mknod /dev/gpioled3 c 201 0");
-system("sudo chmod 666 /dev/gpioled3");
+system("sudo mknod -m 666 /dev/gpioled3 c 201 0");
+//system("sudo chmod 666 /dev/gpioled3");
 
 fd = open("/dev/gpioled3", O_WRONLY);
 if(fd == -1) {

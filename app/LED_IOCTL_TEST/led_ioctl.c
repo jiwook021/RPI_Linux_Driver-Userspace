@@ -19,8 +19,8 @@
 
 int main(int argc, char **argv) {
 
-    system("sudo mknod /dev/gpioled_ioctl c 207 0");
-    system("sudo chmod 666 /dev/gpioled_ioctl");
+    system("sudo mknod -m 666 /dev/gpioled_ioctl c 207 0");
+    //system("sudo chmod 666 /dev/gpioled_ioctl");
 
 int fd;
 char buf;

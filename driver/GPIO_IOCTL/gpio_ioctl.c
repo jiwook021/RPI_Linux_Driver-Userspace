@@ -59,11 +59,11 @@ long int lcd_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
         break;
     case LED_ON :
         printk("LED ON = %02x..\n",(unsigned char )arg);
-        gpio_set_value(GPIO_LED, (1));
+        gpio_set_value(GPIO_LED, 1);
         break;
     case LED_OFF :
         printk("LED OFF = %02x..\n",(unsigned char )arg);
-        gpio_set_value(GPIO_LED, (0));
+        gpio_set_value(GPIO_LED, 0);
         break;
     default :
         printk("ioctl command mismatch ERROR! \n");

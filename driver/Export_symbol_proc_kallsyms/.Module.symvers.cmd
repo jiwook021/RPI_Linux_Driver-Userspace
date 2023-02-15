@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Export_symbol_proc_kallsyms/Module.symvers := sed 's/\.ko$$/\.o/' /home/jiwook/data/driver/Export_symbol_proc_kallsyms/modules.order | scripts/mod/modpost -m -a  -o /home/jiwook/data/driver/Export_symbol_proc_kallsyms/Module.symvers -e -i Module.symvers   -T -

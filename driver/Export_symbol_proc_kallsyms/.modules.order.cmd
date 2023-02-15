@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Export_symbol_proc_kallsyms/modules.order := {   echo /home/jiwook/data/driver/Export_symbol_proc_kallsyms/symbol1_driver.ko;   echo /home/jiwook/data/driver/Export_symbol_proc_kallsyms/symbol2_driver.ko; :; } | awk '!x[$$0]++' - > /home/jiwook/data/driver/Export_symbol_proc_kallsyms/modules.order
