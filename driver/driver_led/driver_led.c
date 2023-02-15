@@ -12,8 +12,7 @@
 #include <linux/delay.h>
 #include <linux/io.h> // ioremap(), iounmap()
 
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("HA");
+
 
 // for BCM2711 GPIO Physical address : 0x7E200000
 #define GPIO_BASE 0xFE200000 // 0xFE200000 : Virtual Address
@@ -74,6 +73,7 @@ static void led_exit(void) {
         iounmap(gpio_addr);
         printk("rmmod : driver_led Module\n");
 }
-
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 module_init(led_init);
 module_exit(led_exit);

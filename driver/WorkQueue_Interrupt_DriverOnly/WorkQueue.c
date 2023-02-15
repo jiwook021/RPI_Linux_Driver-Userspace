@@ -242,3 +242,4 @@ module_exit(WorkQueue_driver_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Simple Linux device driver (Global Workqueue - Static method)");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");

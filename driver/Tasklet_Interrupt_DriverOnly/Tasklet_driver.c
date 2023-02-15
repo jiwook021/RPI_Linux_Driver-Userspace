@@ -258,4 +258,5 @@ module_init(Tasklet_driver_init);
 module_exit(Tasklet_driver_exit);
 
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 MODULE_DESCRIPTION("A simple device driver - Tasklet Dynamic");

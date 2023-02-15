@@ -1,1 +1,1 @@
-cmd_/home/jiwook/data/driver/WorkQueue/WorkQueue.mod := { echo  /home/jiwook/data/driver/WorkQueue/WorkQueue.o;  echo; } > /home/jiwook/data/driver/WorkQueue/WorkQueue.mod
+cmd_/home/jiwook/data/driver/WorkQueue_Interrupt_DriverOnly/WorkQueue.mod := { echo  /home/jiwook/data/driver/WorkQueue_Interrupt_DriverOnly/WorkQueue.o;  echo; } > /home/jiwook/data/driver/WorkQueue_Interrupt_DriverOnly/WorkQueue.mod

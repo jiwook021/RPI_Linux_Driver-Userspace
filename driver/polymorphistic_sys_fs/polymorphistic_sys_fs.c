@@ -264,4 +264,5 @@ module_exit(haha_driver_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Simple Linux device driver (sysfs)");
-MODULE_VERSION("1.8");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
+MODULE_VERSION("2");

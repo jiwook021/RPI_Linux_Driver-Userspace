@@ -105,5 +105,5 @@ module_init(gpiobtn_init);
 module_exit(gpiobtn_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("melee");
-MODULE_DESCRIPTION("Raspberry Pi 3 GPIO Switch Device Driver Module");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
+MODULE_DESCRIPTION("Raspberry Pi 3 GPIO Switch Interrupt");

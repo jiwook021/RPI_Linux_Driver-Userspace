@@ -1,1 +1,1 @@
-cmd_/home/jiwook/data/driver/WorkQueue/Module.symvers := sed 's/\.ko$$/\.o/' /home/jiwook/data/driver/WorkQueue/modules.order | scripts/mod/modpost -m -a  -o /home/jiwook/data/driver/WorkQueue/Module.symvers -e -i Module.symvers   -T -
+cmd_/home/jiwook/data/driver/WorkQueue_Interrupt_DriverOnly/Module.symvers := sed 's/\.ko$$/\.o/' /home/jiwook/data/driver/WorkQueue_Interrupt_DriverOnly/modules.order | scripts/mod/modpost -m -a  -o /home/jiwook/data/driver/WorkQueue_Interrupt_DriverOnly/Module.symvers -e -i Module.symvers   -T -

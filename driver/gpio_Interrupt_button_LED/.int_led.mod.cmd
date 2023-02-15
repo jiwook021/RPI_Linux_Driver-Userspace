@@ -1,1 +1,1 @@
-cmd_/home/jiwook/data/driver/gpio_Interrupt_buitton_LED/int_led.mod := { echo  /home/jiwook/data/driver/gpio_Interrupt_buitton_LED/int_led.o;  echo; } > /home/jiwook/data/driver/gpio_Interrupt_buitton_LED/int_led.mod
+cmd_/home/jiwook/data/driver/gpio_Interrupt_button_LED/int_led.mod := { echo  /home/jiwook/data/driver/gpio_Interrupt_button_LED/int_led.o;  echo; } > /home/jiwook/data/driver/gpio_Interrupt_button_LED/int_led.mod

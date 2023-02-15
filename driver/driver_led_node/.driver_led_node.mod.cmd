@@ -1,1 +1,1 @@
-cmd_/home/jiwook/Downloads/driver_led_node/driver_led_node.mod := { echo  /home/jiwook/Downloads/driver_led_node/driver_led_node.o;  echo; } > /home/jiwook/Downloads/driver_led_node/driver_led_node.mod
+cmd_/home/jiwook/data/driver/driver_led_node/driver_led_node.mod := { echo  /home/jiwook/data/driver/driver_led_node/driver_led_node.o;  echo; } > /home/jiwook/data/driver/driver_led_node/driver_led_node.mod

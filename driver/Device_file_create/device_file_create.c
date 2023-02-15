@@ -128,6 +128,7 @@ module_init(haha_init);
 module_exit(haha_exit);
  
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 MODULE_DESCRIPTION("Simple linux driver (Automatically Creating a Device file)");
 MODULE_VERSION("1.2");
 

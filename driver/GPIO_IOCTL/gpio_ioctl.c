@@ -106,5 +106,5 @@ module_init(gpioled_init);
 module_exit(gpioled_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("melee");
-MODULE_DESCRIPTION("Raspberry Pi 3 GPIO LED Device Driver Module");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
+MODULE_DESCRIPTION("Raspberry Pi 3 GPIO LED IOCTL");

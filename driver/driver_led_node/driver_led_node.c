@@ -9,8 +9,6 @@
 #include <linux/io.h> // ioremap(), iounmap()
 
 
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("HA");
 
 
 // for BCM2711 GPIO Physical address : 0x7E200000
@@ -81,6 +79,7 @@ void gpioled_exit(void) {
         unregister_chrdev(MOD_MAJOR, MOD_NAME);
         printk("%s DRIVER CLEANUP\n", MOD_NAME);
 }
-
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 module_init(gpioled_init);
 module_exit(gpioled_exit);

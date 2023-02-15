@@ -304,6 +304,6 @@ module_init(haha_driver_init);
 module_exit(haha_driver_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("EmbeTronicX <embetronicx@gmail.com>");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 MODULE_DESCRIPTION("Simple Linux device driver (procfs)");
 MODULE_VERSION("1.6");

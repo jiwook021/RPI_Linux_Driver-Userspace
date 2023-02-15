@@ -185,5 +185,6 @@ module_init(led_thread_driver_init);
 module_exit(led_thread_driver_exit);
 
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 MODULE_DESCRIPTION("A simple device driver - Kernel Thread");
-MODULE_VERSION("1.14");
+MODULE_VERSION("1");

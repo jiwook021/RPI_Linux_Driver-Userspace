@@ -22,7 +22,7 @@
 
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("HA");
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 
 // for BCM2711 GPIO Physical address : 0x7E200000
 #define GPIO_BASE 0xFE200000 // 0xFE200000 : Virtual Address

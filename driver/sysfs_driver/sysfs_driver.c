@@ -209,8 +209,9 @@ static void __exit haha_driver_exit(void)
 module_init(haha_driver_init);
 module_exit(haha_driver_exit);
  
+MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Simple Linux device driver (sysfs)");
-MODULE_VERSION("1.8");
+MODULE_VERSION("1");
 
 
