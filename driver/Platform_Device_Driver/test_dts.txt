@@ -1,0 +1,19 @@
+dtc -@ -I dts -O dtb -o test_overlay.dtbo test_overlay.dts
+
+
+sudo dtoverlay test_overlay.dtbo
+
+
+ls /proc/device-tree
+
+
+ls /proc/device-tree/haha_device
+
+
+cat /proc/device-tree/haha_device/label
+
+
+cat /proc/device-tree/haha_device/name
+
+
+sudo insmod dt_probe.ko
