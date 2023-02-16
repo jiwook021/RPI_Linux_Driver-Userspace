@@ -64,17 +64,6 @@ struct kobj_attribute haha_in_out = __ATTR(PIN_IO_value, 0660, in_out_show, in_o
 
 //---------------------------------------------------------------------------------------
 
-/*
-** File operation sturcture
-*/
-static struct file_operations fops =
-{
-        .owner = THIS_MODULE,
-        .read = haha_read,
-        .write = haha_write,
-        .open = haha_open,
-        .release = haha_release,
-};
 
 static ssize_t sysfs_show(struct kobject* kobj,
     struct kobj_attribute* attr, char* buf)
@@ -142,6 +131,19 @@ static ssize_t in_out_store(struct kobject* kobj,
     return count;
 }
 
+
+
+/*
+** File operation sturcture
+*/
+static struct file_operations fops =
+{
+        .owner = THIS_MODULE,
+        .read = haha_read,
+        .write = haha_write,
+        .open = haha_open,
+        .release = haha_release,
+};
 /*
 ** This function will be called when we open the Device file
 */

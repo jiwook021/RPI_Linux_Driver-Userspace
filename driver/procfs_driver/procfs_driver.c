@@ -33,7 +33,7 @@
 #define RD_VALUE _IOR('a','b',int32_t*)
 
 int32_t value = 0;
-char haha_array[20] = "try_proc_array\n";
+char haha_array[20] = "0\n";
 static int len = 1;
 
 
