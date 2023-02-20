@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Driver_ioctl_interrupt/driver_ioctl_interrupt.mod := { echo  /home/jiwook/data/driver/Driver_ioctl_interrupt/driver_ioctl_interrupt.o;  echo; } > /home/jiwook/data/driver/Driver_ioctl_interrupt/driver_ioctl_interrupt.mod

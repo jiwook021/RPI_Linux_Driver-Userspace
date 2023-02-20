@@ -42,7 +42,6 @@ void workqueue_fn(struct work_struct* work)
         msleep(500);
     }
     printk(KERN_INFO "Executing Workqueue Function\n");
-
 }
 
 

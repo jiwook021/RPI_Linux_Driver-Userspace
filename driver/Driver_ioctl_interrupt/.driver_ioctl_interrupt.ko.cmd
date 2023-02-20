@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Driver_ioctl_interrupt/driver_ioctl_interrupt.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/Driver_ioctl_interrupt/driver_ioctl_interrupt.ko /home/jiwook/data/driver/Driver_ioctl_interrupt/driver_ioctl_interrupt.o /home/jiwook/data/driver/Driver_ioctl_interrupt/driver_ioctl_interrupt.mod.o;  true

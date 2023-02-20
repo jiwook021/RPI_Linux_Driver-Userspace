@@ -72,11 +72,13 @@ int gpiobtn_init(void) {
         printk(KERN_WARNING"Can't get major %d\n", MOD_MAJOR);
     }
     
-    gpio_request(GPIO_BTN, "SWITCH");
-    gpio_direction_input(GPIO_BTN);
+   
 
     gpio_request(GPIO_LED, "LED");
     gpio_direction_output(GPIO_LED, 0);
+
+    gpio_request(GPIO_BTN, "SWITCH");
+    gpio_direction_input(GPIO_BTN);
 
     btn_irq = gpio_to_irq(GPIO_BTN);
     irq = request_irq(btn_irq, &btn_interrupt, IRQF_TRIGGER_FALLING, "SWITCH", NULL);
@@ -94,11 +96,8 @@ void gpiobtn_exit(void){
     free_irq(btn_irq, NULL);
     gpio_free(GPIO_BTN);
     gpio_free(GPIO_LED);
-
     printk("%s DRIVER CLEANUP\n", MOD_NAME);
-    
-    return;
-
+    return 0;
 }
 
 module_init(gpiobtn_init);

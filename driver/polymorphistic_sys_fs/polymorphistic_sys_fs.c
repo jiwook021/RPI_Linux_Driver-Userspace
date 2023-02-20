@@ -19,10 +19,10 @@
 #include <linux/fs.h>
 #include <linux/cdev.h>
 #include <linux/device.h>
-#include<linux/slab.h>                 //kmalloc()
-#include<linux/uaccess.h>              //copy_to/from_user()
-#include<linux/sysfs.h> 
-#include<linux/kobject.h> 
+#include <linux/slab.h>                 //kmalloc()
+#include <linux/uaccess.h>              //copy_to/from_user()
+#include <linux/sysfs.h> 
+#include <linux/kobject.h> 
 #include <linux/err.h>
 #include <linux/gpio.h> // *)!!!!
 
@@ -79,14 +79,11 @@ static ssize_t sysfs_show(struct kobject* kobj,
 static ssize_t sysfs_store(struct kobject* kobj,
     struct kobj_attribute* attr, const char* buf, size_t count)
 {
-
     sscanf(buf, "%d", &haha_value);
     //input 1 on 0 off
     //
     gpio_set_value(PIN_IO_value / 10, ((haha_value == 0) ? 0 : 1));
     pr_info("Sysfs - Write!!! = %d \n", haha_value);
-
-
     return count;
 }
 
@@ -111,11 +108,11 @@ static ssize_t in_out_show(struct kobject* kobj,
 ** This function will be called when we write the sysfsfs file
 */
 static ssize_t in_out_store(struct kobject* kobj,
-    struct kobj_attribute* attr, const char* buf, size_t count)
+    struct kobj_attribute* attr, IN_IO_value % 2const char* buf, size_t count)
 {
     sscanf(buf, "%d", &PIN_IO_value);
     int pin = PIN_IO_value / 10;
-    int IO = PIN_IO_value % 2;
+    int IO = P;
 
     gpio_request(pin, "LED");
 
@@ -127,12 +124,8 @@ static ssize_t in_out_store(struct kobject* kobj,
     {
         gpio_direction_input(pin);
     }
-
     return count;
 }
-
-
-
 /*
 ** File operation sturcture
 */
@@ -212,29 +205,23 @@ static int __init haha_driver_init(void)
         pr_info("Cannot create the Device 1\n");
         goto r_device;
     }
-
     /*Creating a directory in /sys/kernel/ */
     // kernel_kobj : /sys/kernel/haha_sysfs
     // fs_kobj : /sys/fs/haha_sysfs
     // firmware_kobj : /sys/firmware/haha_sysfs
     kobj_ref = kobject_create_and_add("poly_sysfs", kernel_kobj);
-
     /*Creating sysfs file for haha_value*/
     if (sysfs_create_file(kobj_ref, &haha_attr.attr)) {
         pr_err("Cannot create sysfs file......\n");
         goto r_sysfs;
     }
-
-
     if (sysfs_create_file(kobj_ref, &haha_in_out.attr)) {
         pr_err("Cannot create in out file......\n");
         goto r_sysfs;
 
     }
-
     pr_info("Device Driver Insert...Done!!!\n");
     return 0;
-
 r_sysfs:
     kobject_put(kobj_ref);
     sysfs_remove_file(kernel_kobj, &haha_attr.attr);
