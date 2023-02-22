@@ -8,6 +8,7 @@ module:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 dt: test_overlay.dts
 	dtc -@ -I dts -O dtb -o test_overlay.dtbo test_overlay.dts
+	sudo dtoverlay test_overlay.dtbo
 clean:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
 	rm -rf test_overlay.dtbo

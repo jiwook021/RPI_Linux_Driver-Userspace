@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Platform_LED_driver/Platform_LED.mod := { echo  /home/jiwook/data/driver/Platform_LED_driver/Platform_LED.o;  echo; } > /home/jiwook/data/driver/Platform_LED_driver/Platform_LED.mod

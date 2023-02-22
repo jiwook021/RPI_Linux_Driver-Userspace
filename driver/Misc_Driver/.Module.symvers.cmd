@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Misc_Driver/Module.symvers := sed 's/\.ko$$/\.o/' /home/jiwook/data/driver/Misc_Driver/modules.order | scripts/mod/modpost -m -a  -o /home/jiwook/data/driver/Misc_Driver/Module.symvers -e -i Module.symvers   -T -

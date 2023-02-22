@@ -45,10 +45,10 @@ static int dt_probe(struct platform_device* pdev) {
 		printk("dt_probe - Error! Device property 'label' not found!\n");
 		return -1;
 	}
-	if (!device_property_present(dev, "my_value")) {
+	/*if (!device_property_present(dev, "my_value")) {
 		printk("dt_probe - Error! Device property 'my_value' not found!\n");
 		return -1;
-	}
+	}*/
 
 	/* Read device properties */
 	ret = device_property_read_string(dev, "label", &label);
@@ -57,12 +57,12 @@ static int dt_probe(struct platform_device* pdev) {
 		return -1;
 	}
 	printk("dt_probe - label: %s\n", label);
-	ret = device_property_read_u32(dev, "my_value", &my_value);
+	/*ret = device_property_read_u32(dev, "my_value", &my_value);
 	if (ret) {
 		printk("dt_probe - Error! Could not read 'my_value'\n");
 		return -1;
 	}
-	printk("dt_probe - my_value: %d\n", my_value);
+	printk("dt_probe - my_value: %d\n", my_value);*/
 
 	return 0;
 }
@@ -71,7 +71,7 @@ static int dt_probe(struct platform_device* pdev) {
 * @brief This function is called on unloading the driver
 */
 static int dt_remove(struct platform_device* pdev) {
-	printk("dt_probe - Now I am in the remove function\n");
+	printk("dt_probe - dt remove called\n");
 	return 0;
 }
 
@@ -84,6 +84,7 @@ static int __init my_init(void) {
 		printk("dt_probe - Error! Could not load driver\n");
 		return -1;
 	}
+	printk("init end\n");
 	return 0;
 }
 
@@ -93,6 +94,7 @@ static int __init my_init(void) {
 static void __exit my_exit(void) {
 	printk("dt_probe - Unload driver");
 	platform_driver_unregister(&my_driver);
+	printk("dt_probe - exit driver");
 }
 
 module_init(my_init);

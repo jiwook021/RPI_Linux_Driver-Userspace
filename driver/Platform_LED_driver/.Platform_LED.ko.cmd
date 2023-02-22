@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Platform_LED_driver/Platform_LED.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/Platform_LED_driver/Platform_LED.ko /home/jiwook/data/driver/Platform_LED_driver/Platform_LED.o /home/jiwook/data/driver/Platform_LED_driver/Platform_LED.mod.o;  true

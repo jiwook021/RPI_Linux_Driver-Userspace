@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Misc_Driver/Misc_Driver.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/Misc_Driver/Misc_Driver.ko /home/jiwook/data/driver/Misc_Driver/Misc_Driver.o /home/jiwook/data/driver/Misc_Driver/Misc_Driver.mod.o;  true
