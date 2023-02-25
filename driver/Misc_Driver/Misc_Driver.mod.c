@@ -30,8 +30,8 @@ __used __section("__versions") = {
 	{ 0xabab44ce, "module_layout" },
 	{ 0x836ebef0, "misc_deregister" },
 	{ 0x5a9d4c66, "misc_register" },
-	{ 0x9618ede0, "mutex_unlock" },
-	{ 0x828ce6bb, "mutex_lock" },
+	{ 0x1d37eeed, "ioremap" },
+	{ 0x28118cb6, "__get_user_1" },
 	{ 0x92997ed8, "_printk" },
 	{ 0xb1ad28e0, "__gnu_mcount_nc" },
 };
@@ -39,4 +39,4 @@ __used __section("__versions") = {
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "C004EA303153ADD708B1AA8");
+MODULE_INFO(srcversion, "F2588D6ADF553AC9199C104");

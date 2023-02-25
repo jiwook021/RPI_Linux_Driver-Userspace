@@ -8,7 +8,7 @@
 #include <linux/io.h> // ioremap(), iounmap()
 
 #define GPIO_BASE 0xFE200000
-volatile unsigned int* gpio_addr;
+volatile unsigned static int* gpio_addr;
 #define GPFSEL1 (0x04/4)
 #define GPSET0 (0x1C/4)
 #define GPCLR0 (0x28/4)
@@ -41,35 +41,43 @@ static ssize_t drv_hello_write(struct file* file, const char* buf, size_t length
     printk("%s\n", __FUNCTION__);
     unsigned char c;
 
-    pr_info("my_dev_write() is called.\n");
     get_user(c, buf);
+   
+    
+    *(gpio_addr + GPFSEL1) &= ~(0x07 << 24);
+    //output setting
+    *(gpio_addr + GPFSEL1) |= (0x01 << 24);
 
-    if (c == '0')
+    if (c == 1)
     {
         //	*(g_ioremap_addr + GPSET0) |= 1 << (GPIO_LED);
         *(gpio_addr + GPSET0) |= 1 << (GPIO_LED);
+        pr_info("my_dev_write() is called set %c.\n", c);
     }
+    else
     {
         //	*(g_ioremap_addr + GPCLR0) |= 1 << (GPIO_LED);
-        *(gpio_addr + GPSET0) |= 1 << (GPIO_LED);
+        *(gpio_addr + GPCLR0) |= 1 << (GPIO_LED);
+        pr_info("my_dev_write() is called clear %c.\n", c);
+        //*(gpio_addr + GPSET0) &= ~(0x01 << GPIO_LED);
     }
     //1 for on, 0 for off.
     return 0;
 }
 
-static DEFINE_MUTEX(drv_hello_mutex);
+//static DEFINE_MUTEX(drv_hello_mutex);
 static long drv_hello_ioctl(struct file* file, unsigned int cmd, unsigned long arg)
 {
     printk("%s\n", __FUNCTION__);
 
-    mutex_lock(&drv_hello_mutex);
+   // mutex_lock(&drv_hello_mutex);
     switch (cmd) {
     default:
-        mutex_unlock(&drv_hello_mutex);
+     //   mutex_unlock(&drv_hello_mutex);
         return ENOTTY;
     }
 
-    mutex_unlock(&drv_hello_mutex);
+    //mutex_unlock(&drv_hello_mutex);
     return 0;
 }
 

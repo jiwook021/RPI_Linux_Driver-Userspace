@@ -873,6 +873,28 @@ deps_/home/jiwook/data/driver/Misc_Driver/Misc_Driver.o := \
     $(wildcard include/config/ARM_DMA_USE_IOMMU) \
     $(wildcard include/config/ARCH_OMAP) \
   include/linux/pm_wakeup.h \
+  include/linux/io.h \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+    $(wildcard include/config/PCI) \
+  arch/arm/include/asm/io.h \
+    $(wildcard include/config/NEED_MACH_IO_H) \
+    $(wildcard include/config/PCMCIA_SOC_COMMON) \
+    $(wildcard include/config/ISA) \
+    $(wildcard include/config/PCCARD) \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+    $(wildcard include/config/VIRT_TO_BUS) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  include/linux/fwnode.h \
+  include/linux/vmalloc.h \
+    $(wildcard include/config/KASAN_VMALLOC) \
+    $(wildcard include/config/HAVE_ARCH_HUGE_VMALLOC) \
+  arch/arm/include/asm/vmalloc.h \
 
 /home/jiwook/data/driver/Misc_Driver/Misc_Driver.o: $(deps_/home/jiwook/data/driver/Misc_Driver/Misc_Driver.o)
 

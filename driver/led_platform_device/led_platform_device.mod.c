@@ -33,8 +33,9 @@ __used __section("__versions") = {
 	{ 0xd2e82297, "__platform_driver_register" },
 	{ 0x93dca9c2, "platform_device_register" },
 	{ 0x5a9d4c66, "misc_register" },
-	{ 0x1d37eeed, "ioremap" },
-	{ 0xedc03953, "iounmap" },
+	{ 0x73c0cae3, "devm_ioremap" },
+	{ 0xb1c1807, "platform_get_resource" },
+	{ 0xecdb0401, "devm_iounmap" },
 	{ 0x836ebef0, "misc_deregister" },
 	{ 0x28118cb6, "__get_user_1" },
 	{ 0x92997ed8, "_printk" },
@@ -44,4 +45,4 @@ __used __section("__versions") = {
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "94D1B0231FABC1B3CF008FE");
+MODULE_INFO(srcversion, "1EC9F3279433E6EF3E32731");

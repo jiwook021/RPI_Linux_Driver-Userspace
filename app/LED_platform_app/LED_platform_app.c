@@ -1,20 +1,15 @@
-﻿//====================================
-
-// app_misc.c
-
-
-
+﻿
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
 
 // 생성된 장치파일 위치 및 이름
-#define NODE_NAME "/dev/drv_hello"
+#define NODE_NAME "/dev/mydev"
 
 int main(int argc, char* argv[])
 {
-    system("sudo chmod 666 /dev/drv_hello");
+    system("sudo chmod 666 /dev/mydev");
     // 파일 열기
     // 설정한 open 함수가 불린다.
     int fd = open(NODE_NAME, O_RDWR);
@@ -34,10 +29,7 @@ int main(int argc, char* argv[])
         write(fd, &buf, 1);
         sleep(1);
     }
-    
+
     close(fd);
 }
 
-//probe -> led 5 times
-//write -> gpioset
-//

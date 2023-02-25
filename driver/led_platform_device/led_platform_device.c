@@ -14,7 +14,7 @@
 #define BLOCK_SIZE 4096
 volatile unsigned int __iomem* g_ioremap_addr;
 
-volatile unsigned int* gpio_addr;
+//volatile unsigned int* gpio_addr;
 #define GPFSEL1 (0x04/4)
 #define GPSET0 (0x1C/4)
 #define GPCLR0 (0x28/4)
@@ -27,15 +27,20 @@ static ssize_t my_dev_write(struct file* file, const char __user* buff, size_t c
 	pr_info("my_dev_write() is called.\n");	
 	get_user(c, buff);
 
-	if (c == '0')
+	if (c == 1)
 	{
-	//	*(g_ioremap_addr + GPSET0) |= 1 << (GPIO_LED);
-		*(gpio_addr + GPSET0) |= 1 << (GPIO_LED);
+		*(g_ioremap_addr + GPSET0) |= 1 << (GPIO_LED);
+		//*(gpio_addr + GPSET0) |= 1 << (GPIO_LED);
+		pr_info("my_dev_write() is called set %c.\n", c);
 	}
+	else
 	{
-	//	*(g_ioremap_addr + GPCLR0) |= 1 << (GPIO_LED);
-		*(gpio_addr + GPSET0) |= 1 << (GPIO_LED);
+		*(g_ioremap_addr + GPCLR0) |= 1 << (GPIO_LED);
+		//*(gpio_addr + GPCLR0) |= 1 << (GPIO_LED);
+		pr_info("my_dev_write() is called clear %c.\n", c);
+		//*(gpio_addr + GPSET0) &= ~(0x01 << GPIO_LED);
 	}
+
 		//1 for on, 0 for off.
 	return 0;
 }
@@ -98,25 +103,25 @@ static int my_probe(struct platform_device* pdev)
 	pr_info("platform_probe enter\n");
 
 	//=================================================================
-	/*r0 = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+	r0 = platform_get_resource(pdev, IORESOURCE_MEM, 0);
 	if (!r0) {
 		pr_err("IORESOURCE_MEM, 0 does not exist\n");
 		return -EINVAL;
 	}
 	pr_info("r0->start = 0x%08lx\n", (unsigned long)r0->start);
-	pr_info("r0->end = 0x%08lx\n", (unsigned long)r0->end);*/
+	pr_info("r0->end = 0x%08lx\n", (unsigned long)r0->end);
 
-	//     r1 = platform_get_resource(pdev, IORESOURCE_MEM, 1);
-	// 	if (!r1) {
-	// 		pr_err("IORESOURCE_MEM, 1 does not exist\n");
-	// 		return -EINVAL;
-	// 	}
-	// 	pr_info("r1->start = 0x%08lx\n", (unsigned long)r1->start);
-	// 	pr_info("r1->end = 0x%08lx\n", (unsigned long)r1->end);
+	  //   r1 = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+	 	//if (!r1) {
+	 	//	pr_err("IORESOURCE_MEM, 1 does not exist\n");
+	 	//	return -EINVAL;
+	 	//}
+	 	//pr_info("r1->start = 0x%08lx\n", (unsigned long)r1->start);
+	 	//pr_info("r1->end = 0x%08lx\n", (unsigned long)r1->end);
 	//=================================================================    
 
-	gpio_addr = ioremap(GPIO_BASE, BLOCK_SIZE);
-	/*g_ioremap_addr = devm_ioremap(dev, r0->start, resource_size(r0));
+	//gpio_addr = ioremap(GPIO_BASE, BLOCK_SIZE);
+	g_ioremap_addr = devm_ioremap(dev, r0->start, resource_size(r0));
 	if (!g_ioremap_addr) {
 		pr_err("ioremap failed \n");
 		return -ENOMEM;
@@ -124,16 +129,16 @@ static int my_probe(struct platform_device* pdev)
 	else
 	{
 		pr_info("g_ioremap_addr = 0x%08lx\n", (unsigned long)g_ioremap_addr);
-	}*/
+	}
 
 	//GPIO clear
-	//*(g_ioremap_addr + GPFSEL1) &= ~(0x07 << 24);
-	////output setting
-	//*(g_ioremap_addr + GPFSEL1) |= (0x01 << 24);
-
-	*(gpio_addr + GPFSEL1) &= ~(0x07 << 24);
+	*(g_ioremap_addr + GPFSEL1) &= ~(0x07 << 24);
 	//output setting
-	*(gpio_addr + GPFSEL1) |= (0x01 << 24);
+	*(g_ioremap_addr + GPFSEL1) |= (0x01 << 24);
+
+	//*(gpio_addr + GPFSEL1) &= ~(0x07 << 24);
+	////output setting
+	//*(gpio_addr + GPFSEL1) |= (0x01 << 24);
 
 
 	retval = misc_register(&helloworld_miscdevice);
@@ -146,8 +151,8 @@ static int my_probe(struct platform_device* pdev)
 static int __exit my_remove(struct platform_device* pdev)
 {
 	misc_deregister(&helloworld_miscdevice);
-	iounmap(gpio_addr);
-	//devm_iounmap(dev,g_ioremap_addr);
+	//iounmap(gpio_addr);
+	devm_iounmap(&pdev->dev,g_ioremap_addr);
 	pr_info("platform_remove exit\n");
 	return 0;
 }
