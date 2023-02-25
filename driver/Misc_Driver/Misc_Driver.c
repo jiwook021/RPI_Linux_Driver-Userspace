@@ -5,6 +5,14 @@
 #include <linux/miscdevice.h>
 #include <linux/mutex.h>
 #include <asm/uaccess.h>
+#include <linux/io.h> // ioremap(), iounmap()
+
+#define GPIO_BASE 0xFE200000
+volatile unsigned int* gpio_addr;
+#define GPFSEL1 (0x04/4)
+#define GPSET0 (0x1C/4)
+#define GPCLR0 (0x28/4)
+#define GPIO_LED 18 // BCD_GPIO #18
 
 // 사용자 구현 함수 : 열기, 닫기, 읽기, 쓰기, ioctl
 static int drv_hello_open(struct inode* inode, struct file* file)
@@ -31,7 +39,21 @@ static ssize_t drv_hello_read(struct file* file, char* buf, size_t length, loff_
 static ssize_t drv_hello_write(struct file* file, const char* buf, size_t length, loff_t* ofs)
 {
     printk("%s\n", __FUNCTION__);
+    unsigned char c;
 
+    pr_info("my_dev_write() is called.\n");
+    get_user(c, buf);
+
+    if (c == '0')
+    {
+        //	*(g_ioremap_addr + GPSET0) |= 1 << (GPIO_LED);
+        *(gpio_addr + GPSET0) |= 1 << (GPIO_LED);
+    }
+    {
+        //	*(g_ioremap_addr + GPCLR0) |= 1 << (GPIO_LED);
+        *(gpio_addr + GPSET0) |= 1 << (GPIO_LED);
+    }
+    //1 for on, 0 for off.
     return 0;
 }
 
@@ -75,6 +97,12 @@ static struct miscdevice drv_hello_driver =
 static int drv_hello_init(void)
 {
     printk("%s\n", __FUNCTION__);
+
+    gpio_addr = ioremap(GPIO_BASE, BLOCK_SIZE);
+
+    *(gpio_addr + GPFSEL1) &= ~(0x07 << 24);
+    //output setting
+    *(gpio_addr + GPFSEL1) |= (0x01 << 24);
 
     // 디바이스 드라이버가 적재될때 등록
     // miscdevice 구조체 연결

@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/led_platform_device/led_platform_device.mod := { echo  /home/jiwook/data/driver/led_platform_device/led_platform_device.o;  echo; } > /home/jiwook/data/driver/led_platform_device/led_platform_device.mod
