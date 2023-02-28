@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/device_tree_led_platform/modules.order := {   echo /home/jiwook/data/driver/device_tree_led_platform/Device_tree_led_platform.ko; :; } | awk '!x[$$0]++' - > /home/jiwook/data/driver/device_tree_led_platform/modules.order

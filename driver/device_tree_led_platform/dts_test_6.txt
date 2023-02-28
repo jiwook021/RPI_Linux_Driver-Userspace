@@ -1,0 +1,6 @@
+dtc -@ -I dts -O dtb -o test_overlay.dtbo test_overlay_6.dts; 
+
+sudo dtoverlay test_overlay.dtbo
+
+// remove
+sudo dtoverlay -r test_overlay

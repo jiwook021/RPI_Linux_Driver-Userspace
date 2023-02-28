@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/device_tree_led_platform/Device_tree_led_platform.mod := { echo  /home/jiwook/data/driver/device_tree_led_platform/Device_tree_led_platform.o;  echo; } > /home/jiwook/data/driver/device_tree_led_platform/Device_tree_led_platform.mod

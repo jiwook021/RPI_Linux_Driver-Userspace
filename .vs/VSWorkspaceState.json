@@ -1,11 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\app",
+    "\\app\\LED_platform_app",
+    "\\app\\led_PWM_3",
+    "\\app\\misc_app",
     "\\driver",
-    "\\driver\\Driver_ioctl_interrupt",
-    "\\driver\\led_platform_device",
-    "\\driver\\Misc_Driver"
+    "\\driver\\driver_led_pwm_3"
   ],
-  "SelectedNode": "\\driver\\Misc_Driver",
+  "SelectedNode": "\\app\\LED_platform_app\\LED_platform_app.c",
   "PreviewInSolutionExplorer": false
 }
