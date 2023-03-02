@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Led_platform_dts_resource/Led_platform_dts_resource.mod := { echo  /home/jiwook/data/driver/Led_platform_dts_resource/Led_platform_dts_resource.o;  echo; } > /home/jiwook/data/driver/Led_platform_dts_resource/Led_platform_dts_resource.mod
