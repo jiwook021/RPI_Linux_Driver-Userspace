@@ -5,11 +5,9 @@
 #include <linux/miscdevice.h>
 #include <linux/delay.h>
 #include <linux/uaccess.h>
-
 #include <linux/of_device.h>
 
 #define MAX_KEY 3
-
 #define GPFSEL1 (0x04/4)
 #define GPSET0 (0x1C/4)
 #define GPCLR0 (0x28/4)
@@ -18,6 +16,17 @@
 volatile unsigned int * gpio_addr;
 static struct platform_driver my_platform_driver;
 
+void blink(void)
+{
+    int i = 0;
+	for(i=0;i<10;i++)
+	{
+		*(gpio_addr + GPSET0) |= 1 << (GPIO_LED);
+		mdelay(1000);
+		*(gpio_addr + GPCLR0) |= 1 << (GPIO_LED);
+		mdelay(1000);
+	}
+}
 /* Turn on/off the led with led_app, use copy_from_user() */
 static ssize_t device_tree_led_misc_write(struct file *file, const char __user *buf, size_t count, loff_t *ppos)
 {
@@ -25,9 +34,7 @@ static ssize_t device_tree_led_misc_write(struct file *file, const char __user *
 	char *led_off = "off"; 
 	unsigned char myled_value[10]; 
 	unsigned int temp;
-
 	pr_info("device_tree_led_misc_write() is called.\n");
-
 	pr_info("device_tree_led_misc_write() is exit.\n");
 	return 0;
 }
@@ -35,16 +42,8 @@ static ssize_t device_tree_led_misc_write(struct file *file, const char __user *
 
 static ssize_t device_tree_led_misc_read(struct file* file, char* buf, size_t length, loff_t* ofs)
 {
-    int i = 0;
-
 	printk("%s\n", __FUNCTION__);
-	for(i=0;i<10;i++)
-	{
-	*(gpio_addr + GPSET0) |= 1 << (GPIO_LED);
-	mdelay(1000);
-	*(gpio_addr + GPCLR0) |= 1 << (GPIO_LED);
-	mdelay(1000);
-	}
+	blink();
 	return 0;
 }
 
@@ -83,12 +82,11 @@ static struct miscdevice device_tree_led_misc_miscdevice = {
 
 
 static const struct of_device_id my_of_ids[] = {
-	{ .compatible = "brightlight,haha_device"},      
+	{ .compatible = "brightlight,device"},      
 	{},
 };
 
 MODULE_DEVICE_TABLE(of, my_of_ids);
-
 
 static int my_probe(struct platform_device *pdev)
 {
@@ -109,21 +107,16 @@ static int my_probe(struct platform_device *pdev)
 //---------------------------------------------------------------------    
 	/* Check for device properties */
     const char *label;
-	int haha_value, ret;
+	int value, ret;
     u64 reg_addr, reg_length;
     int max_key, reg_max_key;
-    u32 reg_value[2];
-
-    
+    u32 reg_value[2];    
 	if(!device_property_present(dev, "reg")) {
 		printk("dt_probe - Error! Device property 'label' not found!\n");
 		return -1;
 	}
-    
-    
 	/* parse key map */
 	r = device_property_read_u32_array(dev, "reg", NULL, MAX_KEY);
-    
 	if (r > 0 && r <= MAX_KEY) {
 		reg_max_key = r;
 		r = device_property_read_u32_array(dev, "reg", &reg_value[0], reg_max_key);
@@ -134,13 +127,11 @@ static int my_probe(struct platform_device *pdev)
 	}    
     pr_info("reg_addr = 0x%08lx\n", (unsigned long)reg_value[0]);   
     pr_info("reg_length = 0x%08lx\n", (unsigned long)reg_value[1]);    
-    
     gpio_addr = ioremap(reg_value[0], reg_value[1]);
     pr_info("gpio_addr = 0x%08lx\n", (unsigned long)gpio_addr); 
     *(gpio_addr + GPFSEL1) &= ~(0x07 << 24);
     //output setting
     *(gpio_addr + GPFSEL1) |= (0x01 << 24);
-    
 	/* Read device properties */
 	ret = device_property_read_string(dev, "label", &label);
 	if(ret) {
@@ -150,12 +141,12 @@ static int my_probe(struct platform_device *pdev)
 	printk("dt_probe - label: %s\n", label);
     
 	/* Read device properties */
-	ret = device_property_read_u32(dev, "haha_value", &haha_value);
+	ret = device_property_read_u32(dev, "value", &value);
 	if(ret) {
-		printk("dt_probe - Error! Could not read 'haha_value'\n");
+		printk("dt_probe - Error! Could not read 'value'\n");
 		return -1;
 	}
-	printk("dt_probe - haha_value: %d\n", haha_value);
+	printk("dt_probe - value: %d\n", value);
 //---------------------------------------------------------------------    
 
 	ret_val = misc_register(&device_tree_led_misc_miscdevice);
@@ -163,9 +154,6 @@ static int my_probe(struct platform_device *pdev)
 		pr_err("could not register the misc device mydev");
 		return ret_val;
 	}
-
-	
-
 	pr_info("mydev: got minor %i\n",device_tree_led_misc_miscdevice.minor);
 	return 0;
 }
@@ -186,10 +174,7 @@ static struct platform_driver my_platform_driver = {
 		.owner = THIS_MODULE,
 	}
 };
-
 module_platform_driver(my_platform_driver);
-
 MODULE_LICENSE("GPL");
-MODULE_DESCRIPTION("This is a platform driver that turns on/off \
-	the LED using sysfs and an user application");
+MODULE_DESCRIPTION("This is a platform driver that turns on/off the LED using sysfs and an user application");
 

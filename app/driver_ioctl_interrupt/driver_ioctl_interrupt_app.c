@@ -9,8 +9,6 @@
 #include <fcntl.h>
 #include <linux/ioctl.h>
 
-
-
 int main(int argc, char** argv) {
 
     system("sudo mknod -m 666 /dev/driver-control c 207 0");

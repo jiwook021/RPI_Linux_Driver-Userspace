@@ -5,10 +5,8 @@
 #include <linux/interrupt.h> //interrupt
 #include <linux/gpio.h> //gpio
 #include <linux/delay.h>//delay
-
 #define MOD_MAJOR 207
 #define MOD_NAME "driver-control"
-
 // for BCM2711 GPIO Physical address : 0x7E200000
 #define GPIO_BASE 0xFE200000 
 #define BLOCK_SIZES 4096
@@ -20,11 +18,9 @@
 #define GPSET0 (0x1C/4)
 #define GPCLR0 (0x28/4)
 
-
 volatile unsigned int* gpio_addr;
 static int btn_irq;
 static int count = 0;
-
 static int     __init IOCTL_Interrupt_Button_LED_init(void); //initailization 
 static void    __exit IOCTL_Interrupt_Button_LED_exit(void); //exit
 
@@ -41,7 +37,6 @@ int myapi_release(struct inode* minode, struct file* mfile) {
 ssize_t myapi_write(struct file* inode, const char* gdata, size_t length, loff_t* off_what)
 {
     unsigned char c;
-
     printk("Kernel Module write(): %s\n", MOD_NAME);
     get_user(c, gdata);
     gpio_set_value(GPIO_LED, ((c == '0') ? 0 : 1));
@@ -132,8 +127,6 @@ static void __exit IOCTL_Interrupt_Button_LED_exit(void)  //calls on sudo rmmod 
 }
 module_init(IOCTL_Interrupt_Button_LED_init);
 module_exit(IOCTL_Interrupt_Button_LED_exit);
-
-
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 MODULE_DESCRIPTION("IOCTL_Interrupt_Button_LED");

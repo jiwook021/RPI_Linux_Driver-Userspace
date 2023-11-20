@@ -19,7 +19,6 @@
 dev_t dev = 0;
 static struct class* dev_class;
 static struct cdev etx_cdev;
-
 static int __init etx_driver_init(void);
 static void __exit etx_driver_exit(void);
 
@@ -31,7 +30,6 @@ static ssize_t etx_read(struct file* filp,
 static ssize_t etx_write(struct file* filp,
     const char* buf, size_t len, loff_t* off);
 /******************************************************/
-
 int etx_count = 0;              //Exported variable
 
 /*
@@ -45,15 +43,14 @@ void etx_shared_func(void)
 //EXPORT_SYMBOL_GPL(etx_shared_func);
 EXPORT_SYMBOL(etx_shared_func);
 EXPORT_SYMBOL(etx_count);
-
 //File operation structure
 static struct file_operations fops =
 {
-        .owner = THIS_MODULE,
-        .read = etx_read,
-        .write = etx_write,
-        .open = etx_open,
-        .release = etx_release,
+    .owner = THIS_MODULE,
+    .read = etx_read,
+    .write = etx_write,
+    .open = etx_open,
+    .release = etx_release,
 };
 
 /*
@@ -147,10 +144,8 @@ static void __exit etx_driver_exit(void)
     unregister_chrdev_region(dev, 1);
     pr_info("Device Driver 1 Remove...Done!!!\n");
 }
-
 module_init(etx_driver_init);
 module_exit(etx_driver_exit);
-
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("EmbeTronicX <embetronicx@gmail.com>");
 MODULE_DESCRIPTION("EXPORT_SYMBOL Driver - 1");

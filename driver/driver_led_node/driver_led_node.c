@@ -1,19 +1,12 @@
 //sudo mknod /dev/gpioled c 201 0
-
-
 #include <asm/uaccess.h> // copy_to_user(), copy_from_user()
 #include <linux/ioport.h>
 #include <linux/module.h>
 #include <linux/fs.h> // open(), close(), read(), write()
 #include <linux/cdev.h>
 #include <linux/io.h> // ioremap(), iounmap()
-
-
-
-
 // for BCM2711 GPIO Physical address : 0x7E200000
 #define GPIO_BASE 0xFE200000 // 0xFE200000 : Virtual Address
-
 #define GPIO_RANGE 1024
 // address offset of registers for BCM_GPIO #18
 #define GPFSEL0 (0x00/4) // int *
@@ -22,12 +15,10 @@
 //#define MOD_MAJOR 0 // automatic allocation
 #define MOD_MAJOR 201
 #define MOD_NAME "gpioled"
-
 #define GPIO_LED 18 // BCM_GPIO #18
 //#define GPIO_LED 17 // BCM_GPIO #17
 
 volatile unsigned int * gpio_addr;
-
 int gpioled_open(struct inode *minode, struct file *mfile) {
         printk("Kernel Module Open(): %s\n", MOD_NAME);
         return 0;
@@ -63,15 +54,12 @@ int gpioled_init(void) {
                 printk("Can't get any major\n");
                 return result;
         }
-
         printk("Init Module: Major number %d\n", MOD_MAJOR);
         printk("Init Module: Major number %d\n", result);
-
         gpio_addr = ioremap(GPIO_BASE, GPIO_RANGE);
         // GPFSELn, #18, out
         *(gpio_addr+(GPIO_LED/10)) |= (7 << (((GPIO_LED)%10)*3));
         *(gpio_addr+(GPIO_LED/10)) &= ~(6 << (((GPIO_LED)%10)*3));
-
         return 0;
 }
 

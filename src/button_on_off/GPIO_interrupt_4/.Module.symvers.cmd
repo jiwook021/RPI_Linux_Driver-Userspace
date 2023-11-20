@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/src/button_on_off/GPIO_interrupt_4/Module.symvers := sed 's/\.ko$$/\.o/' /home/jiwook/data/src/button_on_off/GPIO_interrupt_4/modules.order | scripts/mod/modpost -m -a  -o /home/jiwook/data/src/button_on_off/GPIO_interrupt_4/Module.symvers -e -i Module.symvers   -T -
