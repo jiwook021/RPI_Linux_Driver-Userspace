@@ -6,6 +6,7 @@
 #include <linux/cdev.h>
 #include <linux/io.h> // ioremap(), iounmap()
 // for BCM2711 GPIO Physical address : 0x7E200000
+
 #define GPIO_BASE 0xFE200000 // 0xFE200000 : Virtual Address
 #define GPIO_RANGE 1024
 // address offset of registers for BCM_GPIO #18
@@ -17,7 +18,6 @@
 #define MOD_NAME "gpioled"
 #define GPIO_LED 18 // BCM_GPIO #18
 //#define GPIO_LED 17 // BCM_GPIO #17
-
 volatile unsigned int * gpio_addr;
 int gpioled_open(struct inode *minode, struct file *mfile) {
         printk("Kernel Module Open(): %s\n", MOD_NAME);
@@ -34,9 +34,9 @@ ssize_t gpioled_write(struct file *inode, const char *gdata, size_t length, loff
         unsigned char c;
         get_user(c, gdata); // if c==1 then ON, else OFF
         if (c == 1)
-        *(gpio_addr+GPSET0) |= 1 << (GPIO_LED); // ON
+                *(gpio_addr+GPSET0) |= 1 << (GPIO_LED); // ON
         else
-        *(gpio_addr+GPCLR0) |= 1 << (GPIO_LED); // OFF
+                *(gpio_addr+GPCLR0) |= 1 << (GPIO_LED); // OFF
         return length;
 }
 

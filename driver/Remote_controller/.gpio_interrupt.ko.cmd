@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Remote_controller/gpio_interrupt.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/Remote_controller/gpio_interrupt.ko /home/jiwook/data/driver/Remote_controller/gpio_interrupt.o /home/jiwook/data/driver/Remote_controller/gpio_interrupt.mod.o;  true

@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/button_on_off/GPIO_interrupt_4/gpio_interrupt.mod := { echo  /home/jiwook/data/driver/button_on_off/GPIO_interrupt_4/gpio_interrupt.o;  echo; } > /home/jiwook/data/driver/button_on_off/GPIO_interrupt_4/gpio_interrupt.mod

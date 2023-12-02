@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Sending_button_signal/signal.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/Sending_button_signal/signal.ko /home/jiwook/data/driver/Sending_button_signal/signal.o /home/jiwook/data/driver/Sending_button_signal/signal.mod.o;  true

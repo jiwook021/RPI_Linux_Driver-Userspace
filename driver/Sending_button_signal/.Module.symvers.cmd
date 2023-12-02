@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Sending_button_signal/Module.symvers := sed 's/\.ko$$/\.o/' /home/jiwook/data/driver/Sending_button_signal/modules.order | scripts/mod/modpost -m -a  -o /home/jiwook/data/driver/Sending_button_signal/Module.symvers -e -i Module.symvers   -T -

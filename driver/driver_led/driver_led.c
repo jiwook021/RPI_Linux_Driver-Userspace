@@ -24,7 +24,7 @@ volatile unsigned int * gpio_addr;
 static void blink(void) {
         int i;
         for(i=0; i<5 ; i++){
-                printk("haha\n");
+                printk("Turn on\n");
                 *(gpio_addr+GPSET0) |= 1 << (GPIO_LED);
                 mdelay(1000);
                 *(gpio_addr+GPCLR0) |= 1 << (GPIO_LED);
@@ -32,14 +32,13 @@ static void blink(void) {
         }
 }
 
-static void blink1(void) {
+static void blink2(void) {
         int i;
         for(i=0; i<10 ; i++){
                 unsigned int set_value = ioread32(gpio_addr+GPSET0);
                 set_value |= 1 << (GPIO_LED);
                 iowrite32(set_value, gpio_addr+GPSET0);
                 mdelay(500);
-            
                 unsigned int clear_value = ioread32(gpio_addr+GPCLR0);
                 clear_value |= 1 << (GPIO_LED);
                 iowrite32(clear_value, gpio_addr+GPCLR0);
@@ -54,7 +53,7 @@ static int led_init(void) {
         *(gpio_addr+GPFSEL1) &= ~(0x07 << 24);
         *(gpio_addr+GPFSEL1) |= (0x01 << 24);
         //blink();
-        blink1();
+        blink2();
         return 0;
 }
 

@@ -123,13 +123,13 @@ static irqreturn_t gpio_irq_handler(int irq,void *dev_id)
   {
     start_time = ktime_get_ns();
     pr_info("HIGH\n");
-    sprintf(uart_buff,"Interrupt occured: button Down\n\r");
+    sprintf(uart_buff,"Interrupt occured\n\r");
     uart_send_str(uart_buff);
   }
   else
   {
     end_time = ktime_get_ns();
-    sprintf(uart_buff,"Interrupt occured: button UP\n\r");
+    sprintf(uart_buff,"Interrupt occured\n\r");
     uart_send_str(uart_buff);
     pr_info("LOW\n");  
     s64 diff_time = ktime_to_ns(ktime_sub(end_time, start_time));

@@ -5,6 +5,7 @@
 #include <linux/interrupt.h> //interrupt
 #include <linux/gpio.h> //gpio
 #include <linux/delay.h>//delay
+
 #define MOD_MAJOR 207
 #define MOD_NAME "driver-control"
 // for BCM2711 GPIO Physical address : 0x7E200000
@@ -13,7 +14,6 @@
 
 #define GPIO_LED 18 // BCD_GPIO #18
 #define GPIO_BTN 17 // BCM_GPIO #17
-
 #define GPFSEL1 (0x04/4)
 #define GPSET0 (0x1C/4)
 #define GPCLR0 (0x28/4)
@@ -73,7 +73,7 @@ long int myapi_ioctl(struct file* filp, unsigned int cmd, unsigned long arg)
 }
 
 static struct file_operations myfops = {
-.write = myapi_write, .read = myapi_read, .open = myapi_open, .release = myapi_release, .unlocked_ioctl = myapi_ioctl
+    .write = myapi_write, .read = myapi_read, .open = myapi_open, .release = myapi_release, .unlocked_ioctl = myapi_ioctl
 };
 
 //Intterupt service routine
@@ -91,7 +91,6 @@ static irqreturn_t btn_interrupt(int irq, void* dev_id) {
     }
     return 0;
 }
-
 
 static int __init IOCTL_Interrupt_Button_LED_init(void)
 {

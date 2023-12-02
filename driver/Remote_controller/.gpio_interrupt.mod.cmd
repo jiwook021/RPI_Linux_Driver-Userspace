@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Remote_controller/gpio_interrupt.mod := { echo  /home/jiwook/data/driver/Remote_controller/gpio_interrupt.o;  echo; } > /home/jiwook/data/driver/Remote_controller/gpio_interrupt.mod

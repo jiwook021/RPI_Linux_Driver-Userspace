@@ -22,6 +22,7 @@
 volatile unsigned int *gpio_addr;
 volatile unsigned int *gpioset;
 volatile unsigned int *gpioclr;
+
 int led2_open(struct inode *minode, struct file *mfile) {
         printk("Kernel Module Open(): %s\n", MOD_NAME);
         return 0;
@@ -42,7 +43,6 @@ ssize_t led2_write(struct file *inode, const char *gdata, size_t length, loff_t 
                 unsigned int set_value = ioread32(gpioset);
                 set_value |= 1 << (GPIO_LED);
                 iowrite32(set_value, gpioset);
-
         }
         else if(c==0)
         {
@@ -57,7 +57,6 @@ static struct file_operations gpioled_fops = {
         .open = led2_open,
         .release = led2_release,
 };
-
 
 static int led_init(void) {
         printk("insmod : driver_led3 Module\n");

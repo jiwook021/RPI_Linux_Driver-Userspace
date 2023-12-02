@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/Remote_controller/Module.symvers := sed 's/\.ko$$/\.o/' /home/jiwook/data/driver/Remote_controller/modules.order | scripts/mod/modpost -m -a  -o /home/jiwook/data/driver/Remote_controller/Module.symvers -e -i Module.symvers   -T -

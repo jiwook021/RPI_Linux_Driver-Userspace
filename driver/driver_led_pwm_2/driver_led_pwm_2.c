@@ -19,19 +19,19 @@ MODULE_AUTHOR("Justin Kim jiwook021@gmail.com");
 #define BLOCK_SIZE 4096
 #define GPIO_LED 18 // BCD_GPIO #18
 #define MOD_NAME "gpioled2"
+
 volatile unsigned int *gpio_addr;
 volatile unsigned int *gpioset;
 volatile unsigned int *gpioclr;
+
 int led2_open(struct inode *minode, struct file *mfile) {
         printk("Kernel Module Open(): %s\n", MOD_NAME);
         return 0;
 }
-
 int led2_release(struct inode *minode, struct file *mfile) {
         printk("Kernel Module close(): %s\n", MOD_NAME);
         return 0;
 }
-
 ssize_t led2_write(struct file *inode, const char *gdata, size_t length, loff_t *off_what) 
 {
         printk("Kernel Module write(): %s\n", MOD_NAME);
@@ -45,12 +45,10 @@ ssize_t led2_write(struct file *inode, const char *gdata, size_t length, loff_t 
         }
         else if(c==0)
         {
-        
                 *gpioclr |= 0x01 <<18;
         }
         return 0;
 }
-
 
 static struct file_operations gpioled_fops = {
         .write = led2_write,
