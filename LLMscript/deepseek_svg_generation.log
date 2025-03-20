@@ -1,0 +1,65 @@
+2025-03-20 13:41:18,376 - INFO - Files: 0 pending, 0 done
+2025-03-20 13:41:18,376 - INFO - Total processed: 0
+2025-03-20 13:41:31,551 - INFO - Files: 54 pending, 0 done
+2025-03-20 13:42:53,709 - INFO - Saved: ../src/button_on_off/GPIO_interrupt_4/imgs/gpio_interrupt_diagram1.svg
+2025-03-20 13:42:53,709 - INFO - Saved: ../src/button_on_off/GPIO_interrupt_4/imgs/gpio_interrupt_diagram2.svg
+2025-03-20 13:42:53,710 - INFO - Saved: ../src/button_on_off/GPIO_interrupt_4/imgs/gpio_interrupt_diagram3.svg
+2025-03-20 13:42:53,710 - INFO - Saved: ../src/button_on_off/GPIO_interrupt_4/imgs/gpio_interrupt_diagram4.svg
+2025-03-20 13:42:53,711 - INFO - Saved: ../src/button_on_off/GPIO_interrupt_4/imgs/gpio_interrupt_diagram5.svg
+2025-03-20 13:42:53,711 - INFO - Saved: ../src/button_on_off/GPIO_interrupt_4/imgs/gpio_interrupt_diagram6.svg
+2025-03-20 13:43:06,337 - INFO - Interrupted by user
+2025-03-20 14:08:49,259 - INFO - Files: 53 pending, 1 done
+2025-03-20 14:10:06,572 - INFO - Saved: ../app/LED_control_with_fd/imgs/main_diagram1.svg
+2025-03-20 14:10:06,572 - INFO - Saved: ../app/LED_control_with_fd/imgs/main_diagram2.svg
+2025-03-20 14:10:06,573 - INFO - Saved: ../app/LED_control_with_fd/imgs/main_diagram3.svg
+2025-03-20 14:10:06,573 - INFO - Saved: ../app/LED_control_with_fd/imgs/main_diagram4.svg
+2025-03-20 14:10:06,573 - INFO - Saved: ../app/LED_control_with_fd/imgs/main_diagram5.svg
+2025-03-20 14:10:06,573 - INFO - Saved: ../app/LED_control_with_fd/imgs/main_diagram6.svg
+2025-03-20 14:11:23,599 - INFO - Saved: ../app/app_real_device_driver/imgs/app_real_device_driver_diagram1.svg
+2025-03-20 14:11:23,600 - INFO - Saved: ../app/app_real_device_driver/imgs/app_real_device_driver_diagram2.svg
+2025-03-20 14:11:23,601 - INFO - Saved: ../app/app_real_device_driver/imgs/app_real_device_driver_diagram3.svg
+2025-03-20 14:11:23,602 - INFO - Saved: ../app/app_real_device_driver/imgs/app_real_device_driver_diagram4.svg
+2025-03-20 14:11:23,602 - INFO - Saved: ../app/app_real_device_driver/imgs/app_real_device_driver_diagram5.svg
+2025-03-20 14:11:23,602 - INFO - Saved: ../app/app_real_device_driver/imgs/app_real_device_driver_diagram6.svg
+2025-03-20 14:12:31,203 - INFO - Saved: ../app/Platform_LED_driver_app/imgs/Platform_LED_driver_app_diagram1.svg
+2025-03-20 14:12:31,203 - INFO - Saved: ../app/Platform_LED_driver_app/imgs/Platform_LED_driver_app_diagram2.svg
+2025-03-20 14:12:31,203 - INFO - Saved: ../app/Platform_LED_driver_app/imgs/Platform_LED_driver_app_diagram3.svg
+2025-03-20 14:12:31,204 - INFO - Saved: ../app/Platform_LED_driver_app/imgs/Platform_LED_driver_app_diagram4.svg
+2025-03-20 14:12:31,204 - INFO - Saved: ../app/Platform_LED_driver_app/imgs/Platform_LED_driver_app_diagram5.svg
+2025-03-20 14:12:31,204 - INFO - Saved: ../app/Platform_LED_driver_app/imgs/Platform_LED_driver_app_diagram6.svg
+2025-03-20 14:13:48,256 - INFO - Saved: ../app/sysfs_app_button_control_led/imgs/sysfs_app_button_control_led_diagram1.svg
+2025-03-20 14:13:48,257 - INFO - Saved: ../app/sysfs_app_button_control_led/imgs/sysfs_app_button_control_led_diagram2.svg
+2025-03-20 14:13:48,257 - INFO - Saved: ../app/sysfs_app_button_control_led/imgs/sysfs_app_button_control_led_diagram3.svg
+2025-03-20 14:13:48,257 - INFO - Saved: ../app/sysfs_app_button_control_led/imgs/sysfs_app_button_control_led_diagram4.svg
+2025-03-20 14:13:48,257 - INFO - Saved: ../app/sysfs_app_button_control_led/imgs/sysfs_app_button_control_led_diagram5.svg
+2025-03-20 14:13:48,257 - INFO - Saved: ../app/sysfs_app_button_control_led/imgs/sysfs_app_button_control_led_diagram6.svg
+2025-03-20 14:14:54,549 - INFO - Saved: ../app/LEDwithButton_gpiomem/imgs/LEDwithButton_diagram1.svg
+2025-03-20 14:14:54,549 - INFO - Saved: ../app/LEDwithButton_gpiomem/imgs/LEDwithButton_diagram2.svg
+2025-03-20 14:14:54,549 - INFO - Saved: ../app/LEDwithButton_gpiomem/imgs/LEDwithButton_diagram3.svg
+2025-03-20 14:14:54,549 - INFO - Saved: ../app/LEDwithButton_gpiomem/imgs/LEDwithButton_diagram4.svg
+2025-03-20 14:14:54,549 - INFO - Saved: ../app/LEDwithButton_gpiomem/imgs/LEDwithButton_diagram5.svg
+2025-03-20 14:14:54,549 - INFO - Saved: ../app/LEDwithButton_gpiomem/imgs/LEDwithButton_diagram6.svg
+2025-03-20 14:15:52,992 - INFO - Saved: ../app/led_on_off_gpiomem/imgs/led_on_off_diagram1.svg
+2025-03-20 14:15:52,992 - INFO - Saved: ../app/led_on_off_gpiomem/imgs/led_on_off_diagram2.svg
+2025-03-20 14:15:52,992 - INFO - Saved: ../app/led_on_off_gpiomem/imgs/led_on_off_diagram3.svg
+2025-03-20 14:15:52,992 - INFO - Saved: ../app/led_on_off_gpiomem/imgs/led_on_off_diagram4.svg
+2025-03-20 14:15:52,992 - INFO - Saved: ../app/led_on_off_gpiomem/imgs/led_on_off_diagram5.svg
+2025-03-20 14:15:52,993 - INFO - Saved: ../app/led_on_off_gpiomem/imgs/led_on_off_diagram6.svg
+2025-03-20 14:17:10,364 - INFO - Saved: ../app/LED_IOCTL_TEST/imgs/led_ioctl_diagram1.svg
+2025-03-20 14:17:10,365 - INFO - Saved: ../app/LED_IOCTL_TEST/imgs/led_ioctl_diagram2.svg
+2025-03-20 14:17:10,365 - INFO - Saved: ../app/LED_IOCTL_TEST/imgs/led_ioctl_diagram3.svg
+2025-03-20 14:17:10,366 - INFO - Saved: ../app/LED_IOCTL_TEST/imgs/led_ioctl_diagram4.svg
+2025-03-20 14:17:10,366 - INFO - Saved: ../app/LED_IOCTL_TEST/imgs/led_ioctl_diagram5.svg
+2025-03-20 14:17:10,366 - INFO - Saved: ../app/LED_IOCTL_TEST/imgs/led_ioctl_diagram6.svg
+2025-03-20 14:18:20,590 - INFO - Saved: ../app/misc_app/imgs/app_misc_diagram1.svg
+2025-03-20 14:18:20,591 - INFO - Saved: ../app/misc_app/imgs/app_misc_diagram2.svg
+2025-03-20 14:18:20,592 - INFO - Saved: ../app/misc_app/imgs/app_misc_diagram3.svg
+2025-03-20 14:18:20,592 - INFO - Saved: ../app/misc_app/imgs/app_misc_diagram4.svg
+2025-03-20 14:18:20,592 - INFO - Saved: ../app/misc_app/imgs/app_misc_diagram5.svg
+2025-03-20 14:18:20,593 - INFO - Saved: ../app/misc_app/imgs/app_misc_diagram6.svg
+2025-03-20 14:19:30,509 - INFO - Saved: ../app/procfs_app/imgs/procfs_app_diagram1.svg
+2025-03-20 14:19:30,509 - INFO - Saved: ../app/procfs_app/imgs/procfs_app_diagram2.svg
+2025-03-20 14:19:30,509 - INFO - Saved: ../app/procfs_app/imgs/procfs_app_diagram3.svg
+2025-03-20 14:19:30,510 - INFO - Saved: ../app/procfs_app/imgs/procfs_app_diagram4.svg
+2025-03-20 14:19:30,510 - INFO - Saved: ../app/procfs_app/imgs/procfs_app_diagram5.svg
+2025-03-20 14:19:30,510 - INFO - Saved: ../app/procfs_app/imgs/procfs_app_diagram6.svg

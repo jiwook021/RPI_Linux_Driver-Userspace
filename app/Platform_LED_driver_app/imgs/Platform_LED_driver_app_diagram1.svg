@@ -1,0 +1,13 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f0f0f0"/>
+  <text x="50" y="50" font-size="24" fill="black">1. Overall Architecture</text>
+  <rect x="50" y="100" width="1100" height="600" fill="white" stroke="black" stroke-width="2"/>
+  <text x="100" y="150" font-size="20" fill="black">Main Program Flow</text>
+  <text x="100" y="200" font-size="16" fill="black">1. Check command-line arguments</text>
+  <text x="100" y="250" font-size="16" fill="black">2. Open device file (/dev/Platform_LED)</text>
+  <text x="100" y="300" font-size="16" fill="black">3. Write "on" or "off" command to device</text>
+  <text x="100" y="350" font-size="16" fill="black">4. Close device file</text>
+  <text x="100" y="400" font-size="20" fill="black">External Dependencies</text>
+  <text x="100" y="450" font-size="16" fill="black">- System calls: open, write, close</text>
+  <text x="100" y="500" font-size="16" fill="black">- Device file: /dev/Platform_LED</text>
+</svg>

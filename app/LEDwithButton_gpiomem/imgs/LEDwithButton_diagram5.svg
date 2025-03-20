@@ -1,0 +1,13 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f0f0f0"/>
+  <text x="50" y="50" font-size="24" fill="black">5. Function Interactions</text>
+  <rect x="100" y="100" width="1000" height="600" fill="white" stroke="black"/>
+  <text x="150" y="150" font-size="20" fill="black">Function Interactions</text>
+  <text x="150" y="200" font-size="16" fill="black">1. main()</text>
+  <text x="200" y="250" font-size="16" fill="black">- Calls open(), mmap(), signal()</text>
+  <text x="200" y="300" font-size="16" fill="black">- Configures GPIO Pins</text>
+  <text x="200" y="350" font-size="16" fill="black">- Enters Main Loop</text>
+  <text x="150" y="400" font-size="16" fill="black">2. INThandler()</text>
+  <text x="200" y="450" font-size="16" fill="black">- Handles SIGINT Signal</text>
+  <text x="200" y="500" font-size="16" fill="black">- Calls munmap(), close(), exit()</text>
+</svg>

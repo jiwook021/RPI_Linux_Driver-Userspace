@@ -1,0 +1,11 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f0f0f0"/>
+  <text x="50" y="50" font-size="24" fill="black">3. Data Structures</text>
+  <rect x="100" y="100" width="1000" height="600" fill="white" stroke="black"/>
+  <rect x="150" y="150" width="900" height="50" fill="#d3f8d3" stroke="black"/>
+  <text x="170" y="185" font-size="18" fill="black">int fd: File descriptor</text>
+  <rect x="150" y="220" width="900" height="50" fill="#d3f8d3" stroke="black"/>
+  <text x="170" y="255" font-size="18" fill="black">char value: Stores read value (0 or 1)</text>
+  <rect x="150" y="290" width="900" height="50" fill="#d3f8d3" stroke="black"/>
+  <text x="170" y="325" font-size="18" fill="black">char buffer[2]: Temporary buffer</text>
+</svg>

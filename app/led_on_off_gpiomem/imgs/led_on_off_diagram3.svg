@@ -1,0 +1,11 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f0f0f0"/>
+  <text x="50" y="50" font-size="24" fill="black">Data Structures</text>
+  <rect x="50" y="100" width="1100" height="600" fill="white" stroke="black"/>
+  <text x="100" y="150" font-size="20" fill="black">- fd: File Descriptor</text>
+  <text x="100" y="200" font-size="20" fill="black">- gpio_memory_map: Pointer to Mapped Memory</text>
+  <text x="100" y="250" font-size="20" fill="black">- gpio: Volatile Pointer to GPIO Registers</text>
+  <text x="100" y="300" font-size="20" fill="black">- gpio_direction_GPFSEL1: GPIO Direction Register</text>
+  <text x="100" y="350" font-size="20" fill="black">- gpio_set_GPSET0: GPIO Set Register</text>
+  <text x="100" y="400" font-size="20" fill="black">- gpio_set_GPCLR0: GPIO Clear Register</text>
+</svg>

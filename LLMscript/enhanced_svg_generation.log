@@ -1,0 +1,16 @@
+2025-03-20 13:51:32,390 - INFO - Processing: ../app/sysfs_app_button_control_led/sysfs_app_button_control_led.c
+2025-03-20 13:51:32,390 - INFO - Processing: ../driver/Led_platform_dts_resource/Led_platform_dts_resource.c
+2025-03-20 13:51:32,390 - INFO - Processing: ../app/button_ISR_wiringpi/button_ISR_wiringPi.c
+2025-03-20 13:52:17,894 - WARNING - Attempt 1 failed. Retrying in 1.8s: HTTPSConnectionPool(host='api.deepseek.com', port=443): Read timed out.
+2025-03-20 13:52:17,901 - WARNING - Attempt 1 failed. Retrying in 2.0s: HTTPSConnectionPool(host='api.deepseek.com', port=443): Read timed out.
+2025-03-20 13:52:18,054 - WARNING - Attempt 1 failed. Retrying in 1.7s: HTTPSConnectionPool(host='api.deepseek.com', port=443): Read timed out.
+2025-03-20 13:52:27,794 - INFO - Graceful shutdown initiated...
+2025-03-20 13:53:10,114 - WARNING - Attempt 2 failed. Retrying in 3.4s: HTTPSConnectionPool(host='api.deepseek.com', port=443): Read timed out.
+2025-03-20 13:53:10,188 - WARNING - Attempt 2 failed. Retrying in 2.2s: HTTPSConnectionPool(host='api.deepseek.com', port=443): Read timed out.
+2025-03-20 13:53:10,269 - WARNING - Attempt 2 failed. Retrying in 3.3s: HTTPSConnectionPool(host='api.deepseek.com', port=443): Read timed out.
+2025-03-20 13:53:43,604 - INFO - Processing: ../driver/USB/main.c
+2025-03-20 13:54:29,188 - WARNING - Attempt 1 failed. Retrying in 1.1s: HTTPSConnectionPool(host='api.deepseek.com', port=443): Read timed out.
+2025-03-20 13:54:57,346 - INFO - Graceful shutdown initiated...
+2025-03-20 13:55:20,706 - WARNING - Attempt 2 failed. Retrying in 3.2s: HTTPSConnectionPool(host='api.deepseek.com', port=443): Read timed out.
+2025-03-20 13:56:19,336 - WARNING - Attempt 3 failed. Retrying in 4.2s: HTTPSConnectionPool(host='api.deepseek.com', port=443): Read timed out.
+2025-03-20 13:56:23,558 - INFO - Processing completed. State saved to svg_generation_state.json

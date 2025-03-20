@@ -1,0 +1,11 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f0f0f0"/>
+  <text x="50" y="50" font-size="24" fill="black">5. Function Interactions</text>
+  <rect x="50" y="100" width="1100" height="600" fill="white" stroke="black"/>
+  <text x="100" y="150" font-size="20" fill="black">Function Interactions</text>
+  <rect x="100" y="180" width="1000" height="500" fill="#e0e0e0" stroke="black"/>
+  <text x="150" y="230" font-size="18" fill="black">- open(): Opens /proc/haha/procfs_proc</text>
+  <text x="150" y="270" font-size="18" fill="black">- write(): Writes "1" and "0" to file</text>
+  <text x="150" y="310" font-size="18" fill="black">- sleep(): Pauses execution for 1 second</text>
+  <text x="150" y="350" font-size="18" fill="black">- close(): Closes file descriptor</text>
+</svg>

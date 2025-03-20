@@ -1,0 +1,10 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f0f0f0"/>
+  <text x="50" y="50" font-size="24" fill="black">4. Memory Management</text>
+  <rect x="100" y="100" width="1000" height="600" fill="white" stroke="black"/>
+  <text x="150" y="150" font-size="20" fill="black">Memory Management Steps</text>
+  <text x="150" y="200" font-size="16" fill="black">1. Open /dev/gpiomem</text>
+  <text x="150" y="250" font-size="16" fill="black">2. Memory Map GPIO (mmap)</text>
+  <text x="150" y="300" font-size="16" fill="black">3. Cleanup (munmap, close)</text>
+  <text x="150" y="350" font-size="16" fill="black">4. Signal Handler Cleanup</text>
+</svg>

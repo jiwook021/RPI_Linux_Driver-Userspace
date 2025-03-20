@@ -1,0 +1,14 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f0f0f0"/>
+  <text x="50" y="50" font-size="24" fill="black">2. Core Algorithm Flow</text>
+  <rect x="50" y="100" width="1100" height="600" fill="white" stroke="black"/>
+  <text x="100" y="150" font-size="20" fill="black">Loop Execution</text>
+  <rect x="100" y="180" width="1000" height="100" fill="#d3f8d3" stroke="black"/>
+  <text x="120" y="230" font-size="16" fill="black">1. Set buf = 1</text>
+  <rect x="100" y="300" width="1000" height="100" fill="#d3f8d3" stroke="black"/>
+  <text x="120" y="350" font-size="16" fill="black">2. Write buf to device</text>
+  <rect x="100" y="420" width="1000" height="100" fill="#d3f8d3" stroke="black"/>
+  <text x="120" y="470" font-size="16" fill="black">3. Sleep for 1 second</text>
+  <rect x="100" y="540" width="1000" height="100" fill="#d3f8d3" stroke="black"/>
+  <text x="120" y="590" font-size="16" fill="black">4. Set buf = 0 and repeat</text>
+</svg>

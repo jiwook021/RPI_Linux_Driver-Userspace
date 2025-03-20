@@ -1,0 +1,13 @@
+nonupstream/**
+sample
+*.avi
+*.mp4
+readall/*
+readall 
+.vs*
+.env
+code_docs_generator.py
+scriptgpt.py
+scriptClaude.py
+code_analyzer*
+//openaiQuestion*

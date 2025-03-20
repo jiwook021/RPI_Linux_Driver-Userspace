@@ -1,0 +1,16 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f0f0f0"/>
+  <text x="50" y="50" font-size="24" fill="black">Core Algorithm Flow</text>
+  <rect x="50" y="100" width="1100" height="600" fill="white" stroke="black"/>
+  <text x="100" y="150" font-size="20" fill="black">1. Open Device File</text>
+  <text x="100" y="200" font-size="16" fill="black">- Call open() on /dev/REAL_device</text>
+  <text x="100" y="250" font-size="16" fill="black">- Check for errors</text>
+  <text x="100" y="300" font-size="20" fill="black">2. User Interaction Loop</text>
+  <text x="100" y="350" font-size="16" fill="black">- Display menu options</text>
+  <text x="100" y="400" font-size="16" fill="black">- Read user input</text>
+  <text x="100" y="450" font-size="20" fill="black">3. Perform Operation</text>
+  <text x="100" y="500" font-size="16" fill="black">- Write: Store data in write_buf and call write()</text>
+  <text x="100" y="550" font-size="16" fill="black">- Read: Call read() and display data from read_buf</text>
+  <text x="100" y="600" font-size="20" fill="black">4. Exit</text>
+  <text x="100" y="650" font-size="16" fill="black">- Close device file and exit program</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f0f0f0"/>
+  <text x="50" y="50" font-size="24" fill="black">6. Error Handling</text>
+  <rect x="100" y="100" width="1000" height="600" fill="white" stroke="black"/>
+  <text x="150" y="150" font-size="20" fill="black">Error Handling Steps</text>
+  <text x="150" y="200" font-size="16" fill="black">1. Check if /dev/gpiomem Opens Successfully</text>
+  <text x="150" y="250" font-size="16" fill="black">2. Check if mmap() Succeeds</text>
+  <text x="150" y="300" font-size="16" fill="black">3. Signal Handler Ensures Cleanup</text>
+  <text x="150" y="350" font-size="16" fill="black">4. Graceful Exit on SIGINT</text>
+</svg>

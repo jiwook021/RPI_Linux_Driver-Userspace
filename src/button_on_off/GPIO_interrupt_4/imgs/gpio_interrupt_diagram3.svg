@@ -1,0 +1,15 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f0f0f0"/>
+  <text x="50" y="50" font-size="24" fill="black">Data Structures</text>
+  <rect x="50" y="100" width="1100" height="600" fill="white" stroke="black"/>
+  <text x="100" y="150" font-size="20" fill="black">UART Registers</text>
+  <rect x="100" y="180" width="1000" height="50" fill="#d3d3d3" stroke="black"/>
+  <text x="120" y="220" font-size="16" fill="black">- uart5_dr: Data Register</text>
+  <text x="120" y="250" font-size="16" fill="black">- uart5_fr: Flag Register</text>
+  <text x="120" y="280" font-size="16" fill="black">- uart5_ibrd: Integer Baud Rate Divisor</text>
+  <text x="120" y="310" font-size="16" fill="black">- uart5_fbrd: Fractional Baud Rate Divisor</text>
+  <text x="100" y="350" font-size="20" fill="black">GPIO Interrupt Data</text>
+  <rect x="100" y="380" width="1000" height="50" fill="#d3d3d3" stroke="black"/>
+  <text x="120" y="420" font-size="16" fill="black">- Interrupt Number</text>
+  <text x="120" y="450" font-size="16" fill="black">- Debounce Time (ktime)</text>
+</svg>
