@@ -11,3 +11,5 @@ scriptgpt.py
 scriptClaude.py
 code_analyzer*
 //openaiQuestion*
+*.md
+*.svg
