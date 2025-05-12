@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/remote_controller_signal/modules.order := {   echo /home/jiwook/data/driver/remote_controller_signal/remote_controller_signal.ko; :; } | awk '!x[$$0]++' - > /home/jiwook/data/driver/remote_controller_signal/modules.order

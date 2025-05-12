@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/remote_controller_signal/remote_controller_signal.mod := { echo  /home/jiwook/data/driver/remote_controller_signal/remote_controller_signal.o;  echo; } > /home/jiwook/data/driver/remote_controller_signal/remote_controller_signal.mod

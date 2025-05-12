@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/kernel_thread_led_pir/modules.order := {   echo /home/jiwook/data/driver/kernel_thread_led_pir/main.ko; :; } | awk '!x[$$0]++' - > /home/jiwook/data/driver/kernel_thread_led_pir/modules.order

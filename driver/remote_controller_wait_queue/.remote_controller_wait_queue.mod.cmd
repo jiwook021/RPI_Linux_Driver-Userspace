@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/remote_controller_wait_queue/remote_controller_wait_queue.mod := { echo  /home/jiwook/data/driver/remote_controller_wait_queue/remote_controller_wait_queue.o;  echo; } > /home/jiwook/data/driver/remote_controller_wait_queue/remote_controller_wait_queue.mod

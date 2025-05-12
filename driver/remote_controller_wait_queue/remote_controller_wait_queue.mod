@@ -1,0 +1,2 @@
+/home/jiwook/data/driver/remote_controller_wait_queue/remote_controller_wait_queue.o
+

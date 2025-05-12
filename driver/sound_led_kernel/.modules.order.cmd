@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/sound_led_kernel/modules.order := {   echo /home/jiwook/data/driver/sound_led_kernel/sound.ko; :; } | awk '!x[$$0]++' - > /home/jiwook/data/driver/sound_led_kernel/modules.order

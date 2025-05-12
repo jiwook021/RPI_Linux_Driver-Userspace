@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/kernel_thread_led_pir/Module.symvers := sed 's/\.ko$$/\.o/' /home/jiwook/data/driver/kernel_thread_led_pir/modules.order | scripts/mod/modpost -m -a  -o /home/jiwook/data/driver/kernel_thread_led_pir/Module.symvers -e -i Module.symvers   -T -

@@ -1,0 +1,1 @@
+cmd_/home/jiwook/data/driver/sound_led_kernel/sound.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/sound_led_kernel/sound.ko /home/jiwook/data/driver/sound_led_kernel/sound.o /home/jiwook/data/driver/sound_led_kernel/sound.mod.o;  true

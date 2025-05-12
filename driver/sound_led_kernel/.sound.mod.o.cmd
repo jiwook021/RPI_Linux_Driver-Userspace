@@ -1,8 +1,10 @@
-cmd_/home/jiwook/Downloads/driver_led_2/driver_led.o := gcc -Wp,-MMD,/home/jiwook/Downloads/driver_led_2/.driver_led.o.d -nostdinc -isystem /usr/lib/gcc/arm-linux-gnueabihf/10/include -I./arch/arm/include -I./arch/arm/include/generated  -I./include -I./arch/arm/include/uapi -I./arch/arm/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -mlittle-endian -fmacro-prefix-map=./= -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -fno-dwarf2-cfi-asm -fno-omit-frame-pointer -mapcs -mno-sched-prolog -fno-ipa-sra -mabi=aapcs-linux -mfpu=vfp -marm -Wa,-mno-warn-deprecated -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-address-of-packed-member -O2 -fno-allow-store-data-races -Wframe-larger-than=1024 -fstack-protector-strong -Wimplicit-fallthrough=5 -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-stack-clash-protection -pg -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-stringop-truncation -Wno-zero-length-bounds -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -Wno-alloc-size-larger-than -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wno-packed-not-aligned  -DMODULE  -DKBUILD_BASENAME='"driver_led"' -DKBUILD_MODNAME='"driver_led"' -D__KBUILD_MODNAME=kmod_driver_led -c -o /home/jiwook/Downloads/driver_led_2/driver_led.o /home/jiwook/Downloads/driver_led_2/driver_led.c
+cmd_/home/jiwook/data/driver/sound_led_kernel/sound.mod.o := gcc -Wp,-MMD,/home/jiwook/data/driver/sound_led_kernel/.sound.mod.o.d -nostdinc -isystem /usr/lib/gcc/arm-linux-gnueabihf/10/include -I./arch/arm/include -I./arch/arm/include/generated -I./include -I./arch/arm/include/uapi -I./arch/arm/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -mlittle-endian -fmacro-prefix-map=./= -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -fno-dwarf2-cfi-asm -fno-omit-frame-pointer -mapcs -mno-sched-prolog -fno-ipa-sra -mabi=aapcs-linux -mfpu=vfp -marm -Wa,-mno-warn-deprecated -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-address-of-packed-member -O2 -fno-allow-store-data-races -Wframe-larger-than=1024 -fstack-protector-strong -Wimplicit-fallthrough=5 -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-stack-clash-protection -pg -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-stringop-truncation -Wno-zero-length-bounds -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -Wno-alloc-size-larger-than -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wno-packed-not-aligned -DMODULE -DKBUILD_BASENAME='"sound.mod"' -DKBUILD_MODNAME='"sound"' -D__KBUILD_MODNAME=kmod_sound -c -o /home/jiwook/data/driver/sound_led_kernel/sound.mod.o /home/jiwook/data/driver/sound_led_kernel/sound.mod.c
 
-source_/home/jiwook/Downloads/driver_led_2/driver_led.o := /home/jiwook/Downloads/driver_led_2/driver_led.c
+source_/home/jiwook/data/driver/sound_led_kernel/sound.mod.o := /home/jiwook/data/driver/sound_led_kernel/sound.mod.c
 
-deps_/home/jiwook/Downloads/driver_led_2/driver_led.o := \
+deps_/home/jiwook/data/driver/sound_led_kernel/sound.mod.o := \
+    $(wildcard include/config/MODULE_UNLOAD) \
+    $(wildcard include/config/RETPOLINE) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/linux/kconfig.h \
@@ -14,25 +16,34 @@ deps_/home/jiwook/Downloads/driver_led_2/driver_led.o := \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
-    $(wildcard include/config/RETPOLINE) \
     $(wildcard include/config/ARCH_USE_BUILTIN_BSWAP) \
     $(wildcard include/config/KCOV) \
-  include/linux/init.h \
-    $(wildcard include/config/HAVE_ARCH_PREL32_RELOCATIONS) \
-    $(wildcard include/config/STRICT_KERNEL_RWX) \
-    $(wildcard include/config/STRICT_MODULE_RWX) \
-    $(wildcard include/config/LTO_CLANG) \
-  include/linux/compiler.h \
-    $(wildcard include/config/TRACE_BRANCH_PROFILING) \
-    $(wildcard include/config/PROFILE_ALL_BRANCHES) \
-    $(wildcard include/config/STACK_VALIDATION) \
+  include/linux/module.h \
+    $(wildcard include/config/MODULES) \
+    $(wildcard include/config/SYSFS) \
+    $(wildcard include/config/MODULES_TREE_LOOKUP) \
+    $(wildcard include/config/LIVEPATCH) \
+    $(wildcard include/config/STACKTRACE_BUILD_ID) \
     $(wildcard include/config/CFI_CLANG) \
-  include/linux/compiler_types.h \
-  arch/arm/include/generated/asm/rwonce.h \
-  include/asm-generic/rwonce.h \
-  include/linux/kasan-checks.h \
-    $(wildcard include/config/KASAN_GENERIC) \
-    $(wildcard include/config/KASAN_SW_TAGS) \
+    $(wildcard include/config/MODULE_SIG) \
+    $(wildcard include/config/GENERIC_BUG) \
+    $(wildcard include/config/KALLSYMS) \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/TRACEPOINTS) \
+    $(wildcard include/config/TREE_SRCU) \
+    $(wildcard include/config/BPF_EVENTS) \
+    $(wildcard include/config/DEBUG_INFO_BTF_MODULES) \
+    $(wildcard include/config/JUMP_LABEL) \
+    $(wildcard include/config/TRACING) \
+    $(wildcard include/config/EVENT_TRACING) \
+    $(wildcard include/config/FTRACE_MCOUNT_RECORD) \
+    $(wildcard include/config/KPROBES) \
+    $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
+    $(wildcard include/config/PRINTK_INDEX) \
+    $(wildcard include/config/CONSTRUCTORS) \
+    $(wildcard include/config/FUNCTION_ERROR_INJECTION) \
+  include/linux/list.h \
+    $(wildcard include/config/DEBUG_LIST) \
   include/linux/types.h \
     $(wildcard include/config/HAVE_UID16) \
     $(wildcard include/config/UID16) \
@@ -50,37 +61,9 @@ deps_/home/jiwook/Downloads/driver_led_2/driver_led.o := \
   include/uapi/linux/posix_types.h \
   include/linux/stddef.h \
   include/uapi/linux/stddef.h \
+  include/linux/compiler_types.h \
   arch/arm/include/uapi/asm/posix_types.h \
   include/uapi/asm-generic/posix_types.h \
-  include/linux/kcsan-checks.h \
-    $(wildcard include/config/KCSAN) \
-    $(wildcard include/config/KCSAN_IGNORE_ATOMICS) \
-  include/linux/module.h \
-    $(wildcard include/config/MODULES) \
-    $(wildcard include/config/SYSFS) \
-    $(wildcard include/config/MODULES_TREE_LOOKUP) \
-    $(wildcard include/config/LIVEPATCH) \
-    $(wildcard include/config/STACKTRACE_BUILD_ID) \
-    $(wildcard include/config/MODULE_SIG) \
-    $(wildcard include/config/GENERIC_BUG) \
-    $(wildcard include/config/KALLSYMS) \
-    $(wildcard include/config/SMP) \
-    $(wildcard include/config/TRACEPOINTS) \
-    $(wildcard include/config/TREE_SRCU) \
-    $(wildcard include/config/BPF_EVENTS) \
-    $(wildcard include/config/DEBUG_INFO_BTF_MODULES) \
-    $(wildcard include/config/JUMP_LABEL) \
-    $(wildcard include/config/TRACING) \
-    $(wildcard include/config/EVENT_TRACING) \
-    $(wildcard include/config/FTRACE_MCOUNT_RECORD) \
-    $(wildcard include/config/KPROBES) \
-    $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
-    $(wildcard include/config/PRINTK_INDEX) \
-    $(wildcard include/config/MODULE_UNLOAD) \
-    $(wildcard include/config/CONSTRUCTORS) \
-    $(wildcard include/config/FUNCTION_ERROR_INJECTION) \
-  include/linux/list.h \
-    $(wildcard include/config/DEBUG_LIST) \
   include/linux/poison.h \
     $(wildcard include/config/ILLEGAL_POINTER_VALUE) \
   include/linux/const.h \
@@ -104,8 +87,21 @@ deps_/home/jiwook/Downloads/driver_led_2/driver_led.o := \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
     $(wildcard include/config/MODULE_REL_CRCS) \
+    $(wildcard include/config/HAVE_ARCH_PREL32_RELOCATIONS) \
     $(wildcard include/config/TRIM_UNUSED_KSYMS) \
   arch/arm/include/asm/linkage.h \
+  include/linux/compiler.h \
+    $(wildcard include/config/TRACE_BRANCH_PROFILING) \
+    $(wildcard include/config/PROFILE_ALL_BRANCHES) \
+    $(wildcard include/config/STACK_VALIDATION) \
+  arch/arm/include/generated/asm/rwonce.h \
+  include/asm-generic/rwonce.h \
+  include/linux/kasan-checks.h \
+    $(wildcard include/config/KASAN_GENERIC) \
+    $(wildcard include/config/KASAN_SW_TAGS) \
+  include/linux/kcsan-checks.h \
+    $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/KCSAN_IGNORE_ATOMICS) \
   include/linux/bitops.h \
   include/linux/bits.h \
   include/vdso/bits.h \
@@ -216,6 +212,10 @@ deps_/home/jiwook/Downloads/driver_led_2/driver_led.o := \
     $(wildcard include/config/PRINTK) \
     $(wildcard include/config/DYNAMIC_DEBUG) \
     $(wildcard include/config/DYNAMIC_DEBUG_CORE) \
+  include/linux/init.h \
+    $(wildcard include/config/STRICT_KERNEL_RWX) \
+    $(wildcard include/config/STRICT_MODULE_RWX) \
+    $(wildcard include/config/LTO_CLANG) \
   include/linux/kern_levels.h \
   include/linux/cache.h \
     $(wildcard include/config/ARCH_HAS_CACHE_LINE_SIZE) \
@@ -598,305 +598,15 @@ deps_/home/jiwook/Downloads/driver_led_2/driver_led.o := \
     $(wildcard include/config/HAVE_MOD_ARCH_SPECIFIC) \
     $(wildcard include/config/MODULES_USE_ELF_REL) \
     $(wildcard include/config/MODULES_USE_ELF_RELA) \
-  include/linux/delay.h \
-  include/linux/sched.h \
-    $(wildcard include/config/VIRT_CPU_ACCOUNTING_NATIVE) \
-    $(wildcard include/config/SCHED_INFO) \
-    $(wildcard include/config/SCHEDSTATS) \
-    $(wildcard include/config/FAIR_GROUP_SCHED) \
-    $(wildcard include/config/RT_GROUP_SCHED) \
-    $(wildcard include/config/RT_MUTEXES) \
-    $(wildcard include/config/UCLAMP_TASK) \
-    $(wildcard include/config/UCLAMP_BUCKETS_COUNT) \
-    $(wildcard include/config/KMAP_LOCAL) \
-    $(wildcard include/config/SCHED_CORE) \
-    $(wildcard include/config/CGROUP_SCHED) \
-    $(wildcard include/config/BLK_DEV_IO_TRACE) \
-    $(wildcard include/config/PSI) \
-    $(wildcard include/config/COMPAT_BRK) \
-    $(wildcard include/config/CGROUPS) \
-    $(wildcard include/config/BLK_CGROUP) \
-    $(wildcard include/config/PAGE_OWNER) \
-    $(wildcard include/config/EVENTFD) \
-    $(wildcard include/config/STACKPROTECTOR) \
-    $(wildcard include/config/ARCH_HAS_SCALED_CPUTIME) \
-    $(wildcard include/config/VIRT_CPU_ACCOUNTING_GEN) \
-    $(wildcard include/config/POSIX_CPUTIMERS) \
-    $(wildcard include/config/POSIX_CPU_TIMERS_TASK_WORK) \
-    $(wildcard include/config/KEYS) \
-    $(wildcard include/config/SYSVIPC) \
-    $(wildcard include/config/DETECT_HUNG_TASK) \
-    $(wildcard include/config/IO_URING) \
-    $(wildcard include/config/AUDIT) \
-    $(wildcard include/config/AUDITSYSCALL) \
-    $(wildcard include/config/UBSAN) \
-    $(wildcard include/config/UBSAN_TRAP) \
-    $(wildcard include/config/BLOCK) \
-    $(wildcard include/config/TASK_XACCT) \
-    $(wildcard include/config/CPUSETS) \
-    $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
-    $(wildcard include/config/COMPAT) \
-    $(wildcard include/config/PERF_EVENTS) \
-    $(wildcard include/config/RSEQ) \
-    $(wildcard include/config/TASK_DELAY_ACCT) \
-    $(wildcard include/config/FAULT_INJECTION) \
-    $(wildcard include/config/LATENCYTOP) \
-    $(wildcard include/config/KUNIT) \
-    $(wildcard include/config/FUNCTION_GRAPH_TRACER) \
-    $(wildcard include/config/BCACHE) \
-    $(wildcard include/config/VMAP_STACK) \
-    $(wildcard include/config/SECURITY) \
-    $(wildcard include/config/BPF_SYSCALL) \
-    $(wildcard include/config/GCC_PLUGIN_STACKLEAK) \
-    $(wildcard include/config/X86_MCE) \
-    $(wildcard include/config/KRETPROBES) \
-    $(wildcard include/config/ARCH_HAS_PARANOID_L1D_FLUSH) \
-    $(wildcard include/config/ARCH_TASK_STRUCT_ON_STACK) \
-    $(wildcard include/config/DEBUG_RSEQ) \
-  include/uapi/linux/sched.h \
-  include/linux/pid.h \
-  include/linux/rculist.h \
-    $(wildcard include/config/PROVE_RCU_LIST) \
-  include/linux/sem.h \
-  include/uapi/linux/sem.h \
-  include/linux/ipc.h \
-  include/linux/rhashtable-types.h \
-  include/uapi/linux/ipc.h \
-  arch/arm/include/generated/uapi/asm/ipcbuf.h \
-  include/uapi/asm-generic/ipcbuf.h \
-  arch/arm/include/generated/uapi/asm/sembuf.h \
-  include/uapi/asm-generic/sembuf.h \
-  include/linux/shm.h \
-  include/uapi/linux/shm.h \
-  include/uapi/asm-generic/hugetlb_encode.h \
-  arch/arm/include/generated/uapi/asm/shmbuf.h \
-  include/uapi/asm-generic/shmbuf.h \
-  arch/arm/include/asm/shmparam.h \
-  include/linux/plist.h \
-    $(wildcard include/config/DEBUG_PLIST) \
-  include/linux/hrtimer.h \
-    $(wildcard include/config/HIGH_RES_TIMERS) \
-    $(wildcard include/config/TIME_LOW_RES) \
-    $(wildcard include/config/TIMERFD) \
-  include/linux/hrtimer_defs.h \
-  include/linux/timerqueue.h \
-  include/linux/seccomp.h \
-    $(wildcard include/config/SECCOMP) \
-    $(wildcard include/config/HAVE_ARCH_SECCOMP_FILTER) \
-    $(wildcard include/config/SECCOMP_FILTER) \
-    $(wildcard include/config/CHECKPOINT_RESTORE) \
-    $(wildcard include/config/SECCOMP_CACHE_DEBUG) \
-  include/uapi/linux/seccomp.h \
-  arch/arm/include/asm/seccomp.h \
-  include/asm-generic/seccomp.h \
-  include/uapi/linux/unistd.h \
-  include/linux/resource.h \
-  include/uapi/linux/resource.h \
-  arch/arm/include/generated/uapi/asm/resource.h \
-  include/asm-generic/resource.h \
-  include/uapi/asm-generic/resource.h \
-  include/linux/latencytop.h \
-  include/linux/sched/prio.h \
-  include/linux/sched/types.h \
-  include/linux/signal_types.h \
-    $(wildcard include/config/OLD_SIGACTION) \
-  include/uapi/linux/signal.h \
-  arch/arm/include/asm/signal.h \
-  arch/arm/include/uapi/asm/signal.h \
-  include/uapi/asm-generic/signal-defs.h \
-  arch/arm/include/uapi/asm/sigcontext.h \
-  arch/arm/include/generated/uapi/asm/siginfo.h \
-  include/uapi/asm-generic/siginfo.h \
-  include/linux/syscall_user_dispatch.h \
-  include/linux/task_io_accounting.h \
-    $(wildcard include/config/TASK_IO_ACCOUNTING) \
-  include/linux/posix-timers.h \
-  include/linux/alarmtimer.h \
-    $(wildcard include/config/RTC_CLASS) \
-  include/linux/task_work.h \
-  include/uapi/linux/rseq.h \
-  include/linux/kcsan.h \
-  arch/arm/include/generated/asm/kmap_size.h \
-  include/asm-generic/kmap_size.h \
-    $(wildcard include/config/DEBUG_KMAP_LOCAL) \
-  arch/arm/include/asm/delay.h \
-  include/linux/io.h \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-    $(wildcard include/config/PCI) \
-  arch/arm/include/asm/io.h \
-    $(wildcard include/config/NEED_MACH_IO_H) \
-    $(wildcard include/config/PCMCIA_SOC_COMMON) \
-    $(wildcard include/config/ISA) \
-    $(wildcard include/config/PCCARD) \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-    $(wildcard include/config/VIRT_TO_BUS) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
-  include/linux/fwnode.h \
-  include/linux/vmalloc.h \
-    $(wildcard include/config/KASAN_VMALLOC) \
-    $(wildcard include/config/HAVE_ARCH_HUGE_VMALLOC) \
-  include/linux/overflow.h \
-  arch/arm/include/asm/vmalloc.h \
-  arch/arm/include/asm/uaccess.h \
-    $(wildcard include/config/CPU_SW_DOMAIN_PAN) \
-    $(wildcard include/config/CPU_USE_DOMAINS) \
-    $(wildcard include/config/HAVE_EFFICIENT_UNALIGNED_ACCESS) \
-    $(wildcard include/config/UACCESS_WITH_MEMCPY) \
-  arch/arm/include/asm/domain.h \
-    $(wildcard include/config/IO_36) \
-    $(wildcard include/config/CPU_CP15_MMU) \
-  arch/arm/include/generated/asm/unaligned.h \
-  include/asm-generic/unaligned.h \
-  include/linux/unaligned/packed_struct.h \
-  arch/arm/include/generated/asm/extable.h \
-  include/asm-generic/extable.h \
-  include/linux/ioport.h \
-  include/linux/fs.h \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
-    $(wildcard include/config/FS_POSIX_ACL) \
-    $(wildcard include/config/CGROUP_WRITEBACK) \
-    $(wildcard include/config/IMA) \
-    $(wildcard include/config/FILE_LOCKING) \
-    $(wildcard include/config/FSNOTIFY) \
-    $(wildcard include/config/FS_ENCRYPTION) \
-    $(wildcard include/config/FS_VERITY) \
-    $(wildcard include/config/EPOLL) \
-    $(wildcard include/config/UNICODE) \
-    $(wildcard include/config/QUOTA) \
-    $(wildcard include/config/FS_DAX) \
-    $(wildcard include/config/MIGRATION) \
-  include/linux/wait_bit.h \
-  include/linux/kdev_t.h \
-  include/uapi/linux/kdev_t.h \
-  include/linux/dcache.h \
-  include/linux/rculist_bl.h \
-  include/linux/list_bl.h \
-  include/linux/bit_spinlock.h \
-  include/linux/lockref.h \
-    $(wildcard include/config/ARCH_USE_CMPXCHG_LOCKREF) \
-  include/linux/stringhash.h \
-    $(wildcard include/config/DCACHE_WORD_ACCESS) \
-  include/linux/hash.h \
-    $(wildcard include/config/HAVE_ARCH_HASH) \
-  include/linux/path.h \
-  include/linux/list_lru.h \
-    $(wildcard include/config/MEMCG_KMEM) \
-  include/linux/shrinker.h \
-  include/linux/capability.h \
-  include/uapi/linux/capability.h \
-  include/linux/semaphore.h \
-  include/linux/fcntl.h \
-    $(wildcard include/config/ARCH_32BIT_OFF_T) \
-  include/uapi/linux/fcntl.h \
-  arch/arm/include/uapi/asm/fcntl.h \
-  include/uapi/asm-generic/fcntl.h \
-  include/uapi/linux/openat2.h \
-  include/linux/migrate_mode.h \
-  include/linux/percpu-rwsem.h \
-  include/linux/rcuwait.h \
-  include/linux/sched/signal.h \
-    $(wildcard include/config/SCHED_AUTOGROUP) \
-    $(wildcard include/config/BSD_PROCESS_ACCT) \
-    $(wildcard include/config/TASKSTATS) \
-    $(wildcard include/config/STACK_GROWSUP) \
-  include/linux/signal.h \
-    $(wildcard include/config/PROC_FS) \
-  include/linux/sched/jobctl.h \
-  include/linux/sched/task.h \
-    $(wildcard include/config/HAVE_EXIT_THREAD) \
-    $(wildcard include/config/ARCH_WANTS_DYNAMIC_TASK_STRUCT) \
-    $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
-  include/linux/uaccess.h \
-    $(wildcard include/config/SET_FS) \
-  include/linux/fault-inject-usercopy.h \
-    $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
-  include/linux/cred.h \
-    $(wildcard include/config/DEBUG_CREDENTIALS) \
-  include/linux/key.h \
-    $(wildcard include/config/KEY_NOTIFICATIONS) \
-    $(wildcard include/config/NET) \
-  include/linux/assoc_array.h \
-    $(wildcard include/config/ASSOCIATIVE_ARRAY) \
-  include/linux/sched/user.h \
-    $(wildcard include/config/WATCH_QUEUE) \
-  include/linux/percpu_counter.h \
-  include/linux/ratelimit.h \
-  include/linux/rcu_sync.h \
-  include/linux/delayed_call.h \
-  include/linux/uuid.h \
-  include/uapi/linux/uuid.h \
-  include/linux/errseq.h \
-  include/linux/ioprio.h \
-  include/linux/sched/rt.h \
-  include/linux/iocontext.h \
-  include/uapi/linux/ioprio.h \
-  include/linux/fs_types.h \
-  include/linux/mount.h \
-  include/linux/mnt_idmapping.h \
-  include/uapi/linux/fs.h \
-  include/uapi/linux/ioctl.h \
-  arch/arm/include/generated/uapi/asm/ioctl.h \
-  include/asm-generic/ioctl.h \
-  include/uapi/asm-generic/ioctl.h \
-  include/linux/quota.h \
-    $(wildcard include/config/QUOTA_NETLINK_INTERFACE) \
-  include/uapi/linux/dqblk_xfs.h \
-  include/linux/dqblk_v1.h \
-  include/linux/dqblk_v2.h \
-  include/linux/dqblk_qtree.h \
-  include/linux/projid.h \
-  include/uapi/linux/quota.h \
-  include/linux/nfs_fs_i.h \
-  include/linux/cdev.h \
-  include/linux/device.h \
-    $(wildcard include/config/ENERGY_MODEL) \
-    $(wildcard include/config/GENERIC_MSI_IRQ_DOMAIN) \
-    $(wildcard include/config/PINCTRL) \
-    $(wildcard include/config/GENERIC_MSI_IRQ) \
-    $(wildcard include/config/DMA_OPS) \
-    $(wildcard include/config/DMA_DECLARE_COHERENT) \
-    $(wildcard include/config/DMA_CMA) \
-    $(wildcard include/config/SWIOTLB) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
-    $(wildcard include/config/OF) \
-    $(wildcard include/config/DEVTMPFS) \
-    $(wildcard include/config/SYSFS_DEPRECATED) \
-  include/linux/dev_printk.h \
-  include/linux/energy_model.h \
-  include/linux/sched/cpufreq.h \
-    $(wildcard include/config/CPU_FREQ) \
-  include/linux/sched/topology.h \
-    $(wildcard include/config/SCHED_DEBUG) \
-    $(wildcard include/config/SCHED_MC) \
-    $(wildcard include/config/CPU_FREQ_GOV_SCHEDUTIL) \
-  include/linux/sched/idle.h \
-  include/linux/sched/sd_flags.h \
-  include/linux/klist.h \
-  include/linux/pm.h \
-    $(wildcard include/config/VT_CONSOLE_SLEEP) \
-    $(wildcard include/config/PM) \
-    $(wildcard include/config/PM_CLK) \
-    $(wildcard include/config/PM_GENERIC_DOMAINS) \
-  include/linux/device/bus.h \
-    $(wildcard include/config/ACPI) \
-  include/linux/device/class.h \
-  include/linux/device/driver.h \
-  arch/arm/include/asm/device.h \
-    $(wildcard include/config/DMABOUNCE) \
-    $(wildcard include/config/ARM_DMA_USE_IOMMU) \
-    $(wildcard include/config/ARCH_OMAP) \
-  include/linux/pm_wakeup.h \
+  include/linux/build-salt.h \
+    $(wildcard include/config/BUILD_SALT) \
+  include/linux/elfnote.h \
+  include/linux/elfnote-lto.h \
+    $(wildcard include/config/LTO) \
+  include/linux/vermagic.h \
+  include/generated/utsrelease.h \
+  arch/arm/include/asm/vermagic.h \
 
-/home/jiwook/Downloads/driver_led_2/driver_led.o: $(deps_/home/jiwook/Downloads/driver_led_2/driver_led.o)
+/home/jiwook/data/driver/sound_led_kernel/sound.mod.o: $(deps_/home/jiwook/data/driver/sound_led_kernel/sound.mod.o)
 
-$(deps_/home/jiwook/Downloads/driver_led_2/driver_led.o):
+$(deps_/home/jiwook/data/driver/sound_led_kernel/sound.mod.o):
