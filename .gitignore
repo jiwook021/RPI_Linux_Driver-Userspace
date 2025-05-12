@@ -1,6 +1,25 @@
+<<<<<<< HEAD
 *.o
 *.ko
 *.mod.*
 *.symvers
 *.order
 *.cmd
+=======
+nonupstream/**
+sample
+*.avi
+*.mp4
+readall/*
+readall 
+.vs*
+.env
+code_docs_generator.py
+scriptgpt.py
+scriptClaude.py
+code_analyzer*
+//openaiQuestion*
+*.md
+*.svg
+>>>>>>> 624c77c0a9c476809b25639cf4f1321b4f2ad3d7
+driver/Driver_ioctl_interrupt/driver-control

@@ -1,1 +1,0 @@
-cmd_/home/jiwook/data/driver/kernel_timer/kernel_timer.ko := ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/jiwook/data/driver/kernel_timer/kernel_timer.ko /home/jiwook/data/driver/kernel_timer/kernel_timer.o /home/jiwook/data/driver/kernel_timer/kernel_timer.mod.o;  true

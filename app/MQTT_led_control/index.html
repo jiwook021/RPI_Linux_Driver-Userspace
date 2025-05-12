@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi LED Control</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.3.7/mqtt.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .led-display {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .led {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 8px solid #ddd;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.5);
+        }
+        .led-off {
+            background-color: #e0e0e0;
+        }
+        .led-on {
+            background-color: #ff4d4d;
+            box-shadow: 0 0 25px rgba(255, 77, 77, 0.7);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        button {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        button:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .btn-on {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-off {
+            background-color: #f44336;
+            color: white;
+        }
+        .status {
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .status-connected {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-disconnected {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .status-connecting {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .log {
+            height: 120px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            margin-bottom: 20px;
+            background-color: #f5f5f5;
+        }
+        .settings {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .connect-btn {
+            background-color: #2196F3;
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .log-entry {
+            margin-bottom: 4px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 4px;
+        }
+        .debug-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+        .debug-toggle input {
+            width: auto;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Raspberry Pi LED Control</h1>
+        
+        <div class="led-display">
+            <div class="led led-off" id="led">OFF</div>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn-on" id="btn-on" disabled>Turn ON</button>
+            <button class="btn-off" id="btn-off" disabled>Turn OFF</button>
+        </div>
+        
+        <div class="status status-disconnected" id="status">
+            Disconnected
+        </div>
+        
+        <div class="debug-toggle">
+            <label for="show-debug">Show Debug Log</label>
+            <input type="checkbox" id="show-debug">
+        </div>
+        
+        <div class="log" id="log" style="display: none;">
+            <!-- Log entries will be added here -->
+        </div>
+        
+        <div class="settings">
+            <h2>Connection Settings</h2>
+            <div class="form-group">
+                <label for="broker">Broker Address:</label>
+                <input type="text" id="broker" value="ws://169.254.50.163:9001">
+            </div>
+            <div class="form-group">
+                <label for="topic-control">Control Topic:</label>
+                <input type="text" id="topic-control" value="rpi/led/control">
+            </div>
+            <div class="form-group">
+                <label for="topic-status">Status Topic:</label>
+                <input type="text" id="topic-status" value="rpi/led/status">
+            </div>
+            <button class="connect-btn" id="connect-btn">Connect</button>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const led = document.getElementById('led');
+        const btnOn = document.getElementById('btn-on');
+        const btnOff = document.getElementById('btn-off');
+        const statusEl = document.getElementById('status');
+        const connectBtn = document.getElementById('connect-btn');
+        const brokerInput = document.getElementById('broker');
+        const topicControlInput = document.getElementById('topic-control');
+        const topicStatusInput = document.getElementById('topic-status');
+        const logEl = document.getElementById('log');
+        const showDebugCheckbox = document.getElementById('show-debug');
+        
+        // State variables
+        let mqttClient = null;
+        let isConnected = false;
+        let isLedOn = false;
+        let reconnectTimer = null;
+        let commandQueue = [];
+        let connectionAttempts = 0;
+        const MAX_CONNECTION_ATTEMPTS = 5;
+        
+        // Enable/disable debug log
+        showDebugCheckbox.addEventListener('change', function() {
+            logEl.style.display = this.checked ? 'block' : 'none';
+        });
+        
+        // Initialize
+        function init() {
+            addLogEntry('Application initialized.');
+            
+            // Load settings from localStorage if available
+            if (localStorage.getItem('mqttBroker')) {
+                brokerInput.value = localStorage.getItem('mqttBroker');
+            }
+            if (localStorage.getItem('mqttControlTopic')) {
+                topicControlInput.value = localStorage.getItem('mqttControlTopic');
+            }
+            if (localStorage.getItem('mqttStatusTopic')) {
+                topicStatusInput.value = localStorage.getItem('mqttStatusTopic');
+            }
+            
+            // Set up event listeners
+            btnOn.addEventListener('click', function() {
+                sendCommand('ON');
+            });
+            
+            btnOff.addEventListener('click', function() {
+                sendCommand('OFF');
+            });
+            
+            connectBtn.addEventListener('click', function() {
+                if (isConnected) {
+                    disconnect();
+                } else {
+                    connect();
+                }
+            });
+        }
+        
+        // Connect to MQTT broker
+        function connect() {
+            // Save settings to localStorage
+            localStorage.setItem('mqttBroker', brokerInput.value);
+            localStorage.setItem('mqttControlTopic', topicControlInput.value);
+            localStorage.setItem('mqttStatusTopic', topicStatusInput.value);
+            
+            // Reset connection attempts
+            connectionAttempts = 0;
+            
+            // Attempt connection
+            connectToMqtt();
+        }
+        
+        // Connect to MQTT broker with retry logic
+        function connectToMqtt() {
+            // Clear any existing connection
+            if (mqttClient && mqttClient.connected) {
+                mqttClient.end(true);
+            }
+            
+            // Clear any existing reconnect timer
+            if (reconnectTimer) {
+                clearTimeout(reconnectTimer);
+                reconnectTimer = null;
+            }
+            
+            // Update UI
+            updateStatusUI('connecting');
+            disableControls(true);
+            
+            // Increment connection attempts
+            connectionAttempts++;
+            
+            const broker = brokerInput.value;
+            const clientId = 'webui_' + Math.random().toString(16).substring(2, 10);
+            
+            addLogEntry(`Connecting to ${broker} (Attempt ${connectionAttempts}/${MAX_CONNECTION_ATTEMPTS})...`);
+            
+            try {
+                // Create MQTT client
+                mqttClient = mqtt.connect(broker, {
+                    clientId: clientId,
+                    clean: true,
+                    connectTimeout: 5000,
+                    reconnectPeriod: 0,  // We'll handle reconnection manually
+                    keepalive: 30
+                });
+                
+                // Set up MQTT event handlers
+                setupMqttEventHandlers();
+                
+            } catch (error) {
+                handleConnectionError('Failed to create MQTT client: ' + error.message);
+            }
+        }
+        
+        // Set up MQTT event handlers
+        function setupMqttEventHandlers() {
+            // Connection established
+            mqttClient.on('connect', function() {
+                addLogEntry('Connected to MQTT broker!');
+                isConnected = true;
+                connectionAttempts = 0;
+                updateStatusUI('connected');
+                enableControls();
+                
+                // Subscribe to status topic
+                const statusTopic = topicStatusInput.value;
+                mqttClient.subscribe(statusTopic, { qos: 1 }, function(err) {
+                    if (err) {
+                        addLogEntry('Error subscribing to status topic: ' + err.message);
+                    } else {
+                        addLogEntry(`Subscribed to ${statusTopic}`);
+                        
+                        // Request current status
+                        setTimeout(function() {
+                            const controlTopic = topicControlInput.value;
+                            mqttClient.publish(controlTopic, 'STATUS', { qos: 1 });
+                            addLogEntry('Requested current status');
+                        }, 500);
+                    }
+                });
+                
+                // Process any queued commands
+                processCommandQueue();
+                
+                // Update connect button
+                connectBtn.textContent = 'Disconnect';
+            });
+            
+            // Connection lost
+            mqttClient.on('close', function() {
+                if (isConnected) {
+                    addLogEntry('Connection closed');
+                    isConnected = false;
+                    updateStatusUI('disconnected');
+                    disableControls();
+                    
+                    // Auto-reconnect if not a manual disconnect
+                    if (connectionAttempts < MAX_CONNECTION_ATTEMPTS) {
+                        addLogEntry(`Will reconnect in 3 seconds...`);
+                        reconnectTimer = setTimeout(connectToMqtt, 3000);
+                    }
+                }
+            });
+            
+            // Error occurred
+            mqttClient.on('error', function(error) {
+                handleConnectionError('MQTT error: ' + error.message);
+            });
+            
+            // Message received
+            mqttClient.on('message', function(topic, message) {
+                const payload = message.toString();
+                addLogEntry(`Received message on ${topic}: ${payload}`);
+                
+                if (topic === topicStatusInput.value) {
+                    updateLedStatus(payload);
+                }
+            });
+        }
+        
+        // Handle connection error
+        function handleConnectionError(message) {
+            addLogEntry(message);
+            
+            if (connectionAttempts >= MAX_CONNECTION_ATTEMPTS) {
+                addLogEntry('Maximum connection attempts reached. Giving up.');
+                updateStatusUI('disconnected', 'Connection failed after multiple attempts');
+                disableControls();
+                connectBtn.disabled = false;
+                connectBtn.textContent = 'Connect';
+                return;
+            }
+            
+            // Schedule reconnection attempt
+            addLogEntry(`Will retry in 3 seconds...`);
+            reconnectTimer = setTimeout(connectToMqtt, 3000);
+        }
+        
+        // Disconnect from MQTT broker
+        function disconnect() {
+            if (mqttClient) {
+                addLogEntry('Disconnecting...');
+                mqttClient.end(true, null, function() {
+                    addLogEntry('Disconnected by user');
+                });
+                isConnected = false;
+                updateStatusUI('disconnected', 'Disconnected by user');
+                disableControls();
+                connectBtn.textContent = 'Connect';
+                connectBtn.disabled = false;
+            }
+            
+            // Clear any reconnect timer
+            if (reconnectTimer) {
+                clearTimeout(reconnectTimer);
+                reconnectTimer = null;
+            }
+        }
+        
+        // Send command to control the LED
+        function sendCommand(command) {
+            if (!isConnected || !mqttClient) {
+                // Queue command for later execution
+                addLogEntry(`Not connected. Queueing command: ${command}`);
+                commandQueue.push(command);
+                return;
+            }
+            
+            const controlTopic = topicControlInput.value;
+            
+            // Disable buttons while command is being sent
+            disableControls(true);
+            
+            addLogEntry(`Sending command: ${command}`);
+            
+            // First, clear any retained messages (just to be safe)
+            mqttClient.publish(controlTopic, '', { qos: 1, retain: true }, function(err) {
+                if (err) {
+                    addLogEntry(`Error clearing retained messages: ${err.message}`);
+                }
+                
+                // Send the actual command
+                setTimeout(function() {
+                    mqttClient.publish(controlTopic, command, { qos: 1 }, function(err) {
+                        if (err) {
+                            addLogEntry(`Error sending command: ${err.message}`);
+                        } else {
+                            addLogEntry(`Command sent: ${command}`);
+                        }
+                        
+                        // Re-enable buttons
+                        setTimeout(function() {
+                            enableControls();
+                        }, 1000);
+                    });
+                }, 300);
+            });
+        }
+        
+        // Process any queued commands
+        function processCommandQueue() {
+            if (commandQueue.length > 0 && isConnected) {
+                addLogEntry(`Processing queued commands (${commandQueue.length})`);
+                
+                // Process one command at a time
+                const command = commandQueue.shift();
+                sendCommand(command);
+                
+                // Schedule processing of remaining commands
+                if (commandQueue.length > 0) {
+                    setTimeout(processCommandQueue, 1500);
+                }
+            }
+        }
+        
+        // Update the LED status in the UI
+        function updateLedStatus(status) {
+            if (status === 'ON' || status === '1') {
+                led.className = 'led led-on';
+                led.textContent = 'ON';
+                isLedOn = true;
+            } else {
+                led.className = 'led led-off';
+                led.textContent = 'OFF';
+                isLedOn = false;
+            }
+        }
+        
+        // Update the connection status in the UI
+        function updateStatusUI(status, customMessage) {
+            switch (status) {
+                case 'connected':
+                    statusEl.className = 'status status-connected';
+                    statusEl.textContent = customMessage || 'Connected to MQTT broker';
+                    break;
+                    
+                case 'disconnected':
+                    statusEl.className = 'status status-disconnected';
+                    statusEl.textContent = customMessage || 'Disconnected';
+                    break;
+                    
+                case 'connecting':
+                    statusEl.className = 'status status-connecting';
+                    statusEl.textContent = customMessage || 'Connecting...';
+                    break;
+            }
+        }
+        
+        // Enable control buttons
+        function enableControls() {
+            btnOn.disabled = false;
+            btnOff.disabled = false;
+            connectBtn.disabled = false;
+        }
+        
+        // Disable control buttons
+        function disableControls(keepConnectEnabled) {
+            btnOn.disabled = true;
+            btnOff.disabled = true;
+            if (!keepConnectEnabled) {
+                connectBtn.disabled = true;
+            }
+        }
+        
+        // Add entry to the debug log
+        function addLogEntry(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.textContent = `[${timestamp}] ${message}`;
+            logEl.appendChild(entry);
+            logEl.scrollTop = logEl.scrollHeight;
+            
+            // Limit log size
+            while (logEl.children.length > 100) {
+                logEl.removeChild(logEl.children[0]);
+            }
+            
+            console.log(`[MQTT] ${message}`);
+        }
+        
+        // Initialize when the page loads
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>

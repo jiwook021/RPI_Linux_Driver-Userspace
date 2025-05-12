@@ -1,4 +1,4 @@
-﻿// app_misc.c
+// app_misc.c
 
 
 
