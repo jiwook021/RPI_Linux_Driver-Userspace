@@ -10,6 +10,8 @@
  * 
  * Compilation:
  * g++ -std=c++11 mqtt_led_controller_robust.cpp -o mqtt_led_controller_robust -lpaho-mqttpp3 -lpaho-mqtt3as
+ * http://169.254.50.163:8080/data/app/MQTT_led_control/
+ * python3 -m http.server 8080
  */
 
  #include <iostream>
